@@ -1,1 +1,6 @@
 # cogive
+
+
+## Project requirements
+
+### Screens
