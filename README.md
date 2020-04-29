@@ -27,5 +27,3 @@ npm run build
  - Response page for people who donate to give
  - Sign in account page for hospitals
  - Sign in account page for people who donate
-
-### Screens
