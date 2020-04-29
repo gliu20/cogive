@@ -21,5 +21,9 @@ npm run build
 * Svelte 3 as front-end framework
 
 ## Project requirements
+ - Allow creation of community pages
+ - Manage what hospitals require
+ - Sign in account page for hospitals
+ - Sign in account page for people who donate
 
 ### Screens
