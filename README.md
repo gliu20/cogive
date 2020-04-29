@@ -21,7 +21,7 @@ npm run build
 * Svelte 3 as front-end framework
 
 ## Project requirements
- - Maybe forums section?
+ - Maybe forums section? (may crash our site)
  - Allow creation of community pages
  - Manage what hospitals require
  - Response page for people who donate to give
