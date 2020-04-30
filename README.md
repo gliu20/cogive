@@ -9,6 +9,7 @@ npm install
 ### Oh no! npm not found
 This means you need to install [nodejs](https://nodejs.org)
 
+### Developing
 To start a devlopment server
 ```sh
 npm run dev
