@@ -23,6 +23,7 @@ npm run build
 ## About our stack
 * Firebase for realtime database
 * Svelte 3 as front-end framework
+  * Tutorial at https://svelte.dev/tutorial
 
 ## Project requirements
  - Maybe forums section? (may crash our site)
