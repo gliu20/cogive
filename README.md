@@ -1,10 +1,13 @@
 # cogive
 ## Getting Started
-To get started using the software stuff:
+To get started using the software stuff run this on the command line:
 ```sh
 cd cogive
 npm install
 ```
+
+### Oh no! npm not found
+This means you need to install [nodejs](https://nodejs.org)
 
 To start a devlopment server
 ```sh
