@@ -27,7 +27,40 @@
 
     $: deferrables(country, state, city)
 
+    // TO-DO: FIND LAT AND LONG FROM COUNTRY, STATE, CITY
 
+    // Function to create a map
+    function makeMap(lat, long) {
+
+        mapboxgl.accessToken = "pk.eyJ1IjoibWVlLWtlbGw0MiIsImEiOiJjazlwdXl1NWIwZWZuM25tZXhkMXYxMjFmIn0.6vChDLXY_PeIkScr6c6otQ"
+
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/light-v10',
+            center: [long, lat],
+            zoom: 10
+        });
+
+        return map;
+    }
+
+    // Function to add a marker at a hospital coordinate
+    function addHospitalMarker(map, lat, long) {
+
+        var coordinates = [lat, long];
+
+        // Create a HTML element for each marker
+        var mark = document.createElement('div');
+        mark.className = 'marker';
+
+        // Add to map
+        new mapboxgl.Marker(mark)
+            .setLngLat(coordinates)
+            .addTo(map)
+
+    }
+
+    // Do stuff with hospital data
     async function getNearbyHospitals(lat, long) {
 
         // Access API
@@ -37,7 +70,7 @@
         const hospitalListResponse = await fetch(hospitalListAPI, {});
         const hospitalListJSON = await hospitalListResponse.json();
 
-        // Loop through list of hospitals and extract coordinates & name
+        // Loop through list of hospitals, extract coordinates & name, add to map
 
         var hospitalList = [];
 
@@ -60,9 +93,16 @@
     // There might be a better way of doing this in Svelte but idk
 
     async function displayHospitals() {
+
         var hospitalDirectory = await getNearbyHospitals(22.39, 114.10);
         var text = document.getElementById('hospitals');
         text.innerText = hospitalDirectory;
+
+        const map = await makeMap(22.39, 114.10);
+        for (hospital in hospitalDirectory) {
+            addHospitalMarker(map, hospital[0], hospital[1]);
+        }
+
     }
 
     displayHospitals();

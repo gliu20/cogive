@@ -9,7 +9,11 @@
 
 	<link rel='icon' type='image/png' href='/favicon.png'>
 	<link rel='stylesheet' href='/global.css'>
-	<link rel='stylesheet' href='/build/bundle.css'>
+    <link rel='stylesheet' href='/build/bundle.css'>
+
+    <!-- Mapbox -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
 
 	<script defer src='/build/bundle.js'></script>
 
@@ -87,10 +91,12 @@
 			<p class="heading-about">
 				Helping hospitals get their PPEs
 			</p>
-			<div class="donate">Donate PPEs Now</div>
-		</div>
+            <div class="donate">Donate PPEs Now</div>
+        </div>
+        <div id="map"></div>
 	</div>
-	<div class="footer">© CoGive 2020</div>
+    <div class="footer">© CoGive 2020</div>
+
 </body>
 
 </html>

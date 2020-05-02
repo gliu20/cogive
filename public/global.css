@@ -70,3 +70,17 @@ button:focus {
 .nav{
 	display:flex
 }
+
+#map {
+    width: 500px;
+    height: 500px;
+}
+
+.marker {
+  background: red;
+  background-size: cover;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
