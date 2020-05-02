@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset='utf-8'>
 	<meta name='viewport' content='width=device-width,initial-scale=1'>
@@ -36,12 +37,60 @@
 		// Initialize Firebase
 		firebase.initializeApp(firebaseConfig);
 		firebase.analytics();
-		
+
 	</script>
 
-	
+
+	<script>
+		/*
+			timeout  - how long after function stops triggering to run
+			callback - what to do after function stops triggering
+			debounceCallback - what to run in the meantime (optional)
+
+
+			example:
+			debounce(1000, function () {
+				aFunctionThatTakesAReallyLongTime()
+			},
+			function () {
+				thisIsOptionalAndDoesntTakeALongTime()
+				// can be just telling user that we're doing stuff...
+			})
+			//problem - the callback only triggers after the timeout so using one that will take time will slow everything down.
+		*/
+		function debounce(timeout, callback, debounceCallback) {
+			var instance;
+			return function () {
+				clearTimeout(instance);
+				debounceCallback = debounceCallback || function () { };
+				debounceCallback();
+				instance = setTimeout(callback, timeout);
+			}
+		}
+
+	</script>
+
 </head>
 
 <body>
+	<div class="nav">
+		<ul class="nav">
+			<li class="nav-element"><a href="#" class="nav-link">link</a></li>
+			<li class="nav-element"><a href="#" class="nav-link">link</a></li>
+			<li class="nav-element"><a href="#" class="nav-link">link</a></li>
+			<li class="nav-element"><a href="#" class="nav-link">link</a></li>
+		</ul>
+	</div>
+	<div class="container">
+		<div class="frontpage-content">
+			<h1 class="heading">CoGive</h1>
+			<p class="heading-about">
+				Helping hospitals get their PPEs
+			</p>
+			<div class="donate">Donate PPEs Now</div>
+		</div>
+	</div>
+	<div class="footer">© CoGive 2020</div>
 </body>
+
 </html>
