@@ -68,5 +68,5 @@ button:focus {
 	border-color: #666;
 }
 .nav{
-	
+	display:flex
 }
