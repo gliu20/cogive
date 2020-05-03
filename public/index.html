@@ -6,6 +6,10 @@
 	<meta name='viewport' content='width=device-width,initial-scale=1'>
 
 	<title>Svelte app</title>
+	<script type='text/javascript' > 
+		var longitude = 0; 
+		var latitude = 0;
+	  </script>
 	<script src="../src/reachRouter.js"></script>
 
 	<link rel='icon' type='image/png' href='/favicon.png'>
@@ -86,18 +90,28 @@
 			<li class="nav-element"><a href="#" class="nav-link">link</a></li>
 		</ul>
 	</div>
+	<div class="starting" id="startView">
+		<img src="cogive.png" style="width: 15vw" alt="logo">
+			<h3>Helping hospitals get their PPEs</h3>
+			<h3>Donate PPEs Now</h3>
+
+		</div>
+		<p class="heading-about">
+			
+		</p>
+		<div class="donate"></div>
 	<div class="container">
 		<div class="frontpage-content">
-			<h1 class="heading">CoGive</h1>
-			<p class="heading-about">
-				Helping hospitals get their PPEs
-			</p>
-            <div class="donate">Donate PPEs Now</div>
+			
         </div>
         <div id="map"></div>
 	</div>
-    <div class="footer">© CoGive 2020</div>
-
+	<div class="footer">© CoGive 2020</div>
+	
+	
+	<p id="demo"></p>
+	
+<p id = "status"></p>
+<a id = "map-link" target="_blank"></a>
+	
 </body>
-
-</html>
