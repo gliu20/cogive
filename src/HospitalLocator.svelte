@@ -3,8 +3,7 @@
     const hospitalsRef = database.ref("hospitals");
     var longyHospital= localStorage.getItem("longitudeLocalStorage");  
     var latyHospital= localStorage.getItem("latitudeLocalStorage");
-    import latitude from ./main.js;
-    import longitude from ./main.js;
+
     latHospital = latitude;
     longHospital = longitude;
     console.log(latHospital);
