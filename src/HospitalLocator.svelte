@@ -36,6 +36,9 @@ function geoFindMe() {
     var longHospital = longitude;
     /**/
 
+    const database = firebase.database();
+    const hospitalsRef = database.ref("hospitals");
+	
     let country = "";
     let state = "";
     let city = "";
