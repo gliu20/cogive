@@ -1,6 +1,13 @@
 <script>
     const database = firebase.database();
     const hospitalsRef = database.ref("hospitals");
+    var longyHospital= localStorage.getItem("longitudeLocalStorage");  
+    var latyHospital= localStorage.getItem("latitudeLocalStorage");
+    import latitude from ./main.js;
+    import longitude from ./main.js;
+    latHospital = latitude;
+    longHospital = longitude;
+    console.log(latHospital);
     /**/
 
     let country = "";
@@ -31,7 +38,6 @@
 
     // Function to create a map
     function makeMap(lat, long) {
-
         mapboxgl.accessToken = "pk.eyJ1IjoibWVlLWtlbGw0MiIsImEiOiJjazlwdXl1NWIwZWZuM25tZXhkMXYxMjFmIn0.6vChDLXY_PeIkScr6c6otQ"
 
         var map = new mapboxgl.Map({
@@ -94,11 +100,11 @@
 
     async function displayHospitals() {
 
-        var hospitalDirectory = await getNearbyHospitals(22.39, 114.10);
+        var hospitalDirectory = await getNearbyHospitals(latHospital, longHospital);
         var text = document.getElementById('hospitals');
         text.innerText = hospitalDirectory;
 
-        const map = await makeMap(22.39, 114.10);
+        const map = await makeMap(latHospital, longHospital);
         for (hospital in hospitalDirectory) {
             addHospitalMarker(map, hospital[0], hospital[1]);
         }
