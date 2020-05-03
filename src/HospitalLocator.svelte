@@ -1,6 +1,7 @@
 
  
 <script>
+
 function geoFindMe() {
 
 	const status = document.querySelector('#status');
@@ -10,8 +11,9 @@ function geoFindMe() {
 	mapLink.textContent = '';
   
 	function success(position) {
-	  latHospital  = position.coords.latitude;
-	  longHospital = position.coords.longitude;
+	  latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
+      
   
 	  status.textContent = '';
 	  mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
@@ -32,8 +34,8 @@ function geoFindMe() {
   }
   
     geoFindMe();
-    var latHospital = latitude;
-    var longHospital = longitude;
+    console.log(latitude + "" + longitude)
+
     /**/
 
     let country = "";
@@ -127,11 +129,11 @@ function geoFindMe() {
 
     async function displayHospitals() {
 
-        var hospitalDirectory = await getNearbyHospitals(latHospital, longHospital);
+        var hospitalDirectory = await getNearbyHospitals(latitude, longitude);
         var text = document.getElementById('hospitals');
         text.innerText = hospitalDirectory;
 
-        const map = await makeMap(latHospital, longHospital);
+        const map = await makeMap(latitude, longitude);
         for (hospital in hospitalDirectory) {
             addHospitalMarker(map, hospital[0], hospital[1]);
         }
@@ -139,7 +141,7 @@ function geoFindMe() {
     }
 
     displayHospitals();
-    console.log(latHospital + " " + longHospital);
+    console.log(longitude + " " + latitude);
 
 </script>
 
