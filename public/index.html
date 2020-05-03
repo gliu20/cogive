@@ -5,15 +5,17 @@
 	<meta charset='utf-8'>
 	<meta name='viewport' content='width=device-width,initial-scale=1'>
 
-	<title>Svelte app</title>
+	<title>Cogive</title>
 	<script type='text/javascript' > 
 		var longitude = 0; 
 		var latitude = 0;
 	  </script>
 	<script src="../src/reachRouter.js"></script>
 
-	<link rel='icon' type='image/png' href='/favicon.png'>
-	<link rel='stylesheet' href='/global.css'>
+	<link rel='icon' type='image/png' href='/logo.png'>
+    <link rel='stylesheet' href='/global.css'>
+    <link rel='stylesheet' href='/startView.css'>
+    <link rel='stylesheet' href='/homepage.css'>
     <link rel='stylesheet' href='/build/bundle.css'>
 
     <!-- Mapbox -->
@@ -55,8 +57,6 @@
 			timeout  - how long after function stops triggering to run
 			callback - what to do after function stops triggering
 			debounceCallback - what to run in the meantime (optional)
-
-
 			example:
 			debounce(1000, function () {
 				aFunctionThatTakesAReallyLongTime()
@@ -75,43 +75,50 @@
 				debounceCallback();
 				instance = setTimeout(callback, timeout);
 			}
-		}
+        }
 
 	</script>
 
 </head>
 
 <body>
-	<div class="nav">
-		<ul class="nav">
-			<li class="nav-element"><a href="#" class="nav-link">link</a></li>
-			<li class="nav-element"><a href="#" class="nav-link">link</a></li>
-			<li class="nav-element"><a href="#" class="nav-link">link</a></li>
-			<li class="nav-element"><a href="#" class="nav-link">link</a></li>
-		</ul>
-	</div>
-	<div class="starting" id="startView">
-		<img src="cogive.png" style="width: 15vw" alt="logo">
-			<h3>Helping hospitals get their PPEs</h3>
-			<h3>Donate PPEs Now</h3>
 
-		</div>
-		<p class="heading-about">
-			
-		</p>
-		<div class="donate"></div>
+	<div class="starting" id="startView">
+		<img src="logo.png" id="startLogo" alt="logo">
+        <h3>Empowering students to combat COVID-19</h3>
+    </div>
+
+    <div class="nav">
+        <ul class="navbar">
+            <li class="nav-element"><a href="#" class="nav-link">About</a></li>
+            <li class="nav-element"><a href="#" class="nav-link">Donate PPE</a></li>
+            <li class="nav-element"><a href="#" class="nav-link">Build PPE</a></li>
+            <li class="nav-element"><a href="#" class="nav-link">Fundraise</a></li>
+        </ul>
+        <img src="logo.png" id="navLogo" alt="logo">
+    </div>
+
 	<div class="container">
 		<div class="frontpage-content">
-			
+            <div class="frontpage-text">
+                <h2>Welcome to</h2>
+                <h1>Cogive</h1>
+                <h4>An online platform to empower student efforts to raise funds and produce PPE using school resources for local hospitals.</h4>
+            </div>
+            <img src="mask.svg" id="maskLogo" alt="mask">
         </div>
-        <div id="map"></div>
-	</div>
+
+        <div class="location">
+            <h2>Find a hospital in need nearby.</h2>
+            <div id="map"></div>
+            <p id="demo"></p>
+            
+            <p id="status"></p>
+            <a id="map-link" target="_blank"></a>
+        </div>
+
+    </div>
+    
 	<div class="footer">© CoGive 2020</div>
-	
-	
-	<p id="demo"></p>
-	
-<p id = "status"></p>
-<a id = "map-link" target="_blank"></a>
 	
 </body>

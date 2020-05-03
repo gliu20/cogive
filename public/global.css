@@ -10,7 +10,6 @@ html, body {
 body {
 	color: #333;
 	margin: 0;
-	padding: 8px;
 	box-sizing: border-box;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
@@ -72,10 +71,8 @@ button:focus {
 }
 
 #map {
-    width: 1250px;
-	height: 500px;
-	margin-top: 100px;
-	margin-left: -5px;
+    width: 500px;
+    height: 500px;
 }
 
 .marker {
@@ -85,34 +82,4 @@ button:focus {
   height: 5px;
   border-radius: 50%;
   cursor: pointer;
-}
-#startView {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100vw;
-	height: 40vh;
-	background-color: transparent;
-	text-align: left;
-}
-
-#startView h3{
-	position: relative;
-	right :0;
-	width: 20vw;
-	height: 10vh;
-	background-color: transparent;
-	text-align: left;
-	margin-right: 0px;
-	z-index: 2;
-}
-#heading-about{
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100vw;
-	height: 10vh;
-	background-color: white;
-	text-align: center;
-	z-index: 2;
 }
