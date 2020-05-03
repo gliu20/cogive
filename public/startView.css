@@ -1,0 +1,37 @@
+#startView {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+}
+
+#startLogo {
+    width: 20vw;
+}
+
+#startView h3 {
+    font-size: 1.8em;
+}
+
+.fadeOut {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 1;
+	}
+	100% {
+        opacity: 0;
+	}
+}

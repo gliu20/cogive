@@ -1,5 +1,12 @@
 export default app;
 
+// Starting screen
+let startView = document.querySelector('#startView')
+
+setTimeout(() => { startView.className = "fadeOut"; }, 3000);
+setTimeout(() => { startView.style.display = "none"; }, 4000);
+
+// Geolocation
 var geoRun = true;
 function geoFindMe() {
 
