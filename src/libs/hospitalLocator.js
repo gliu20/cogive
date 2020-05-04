@@ -18,13 +18,22 @@ hospitalLocator._getLocationFromIp = async function (ipAddress) {
  * Returns object with latitude and longitude properties
  */
 hospitalLocator._getLocationFromBrowser = function () {
+    const options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 60000 // 60 seconds
+    };
+
     return new Promise (function (resolve,reject) {
         if (!navigator.geolocation) {
             // unsupported
             reject();
         }
 
-        navigator.geolocation.getCurrentPosition(function (position) {
+        navigator.geolocation.getCurrentPosition(onSuccess,onError,options);
+
+
+        function onSuccess (position) {
             if (!position.coords) {
                 reject();
             }
@@ -33,20 +42,18 @@ hospitalLocator._getLocationFromBrowser = function () {
             const longitude = coords.longitude;
             
             resolve({longitude,latitude})
-        },
-            reject(position)
-        ),{
-            enableHighAccuracy: true,
-            timeout: 5000,
-            maximumAge: 60000 // 60 seconds
-        };
+        }
+        
+        function onError () {
+            reject()
+        }
     });
 }
 
 
 hospitalLocator.getHospitalsNearby = async function () {
     const position = await hospitalLocator._getLocationFromBrowser();
-    
+
     const latitude = position.latitude || 0;
     const longitude = position.longitude || 0;
     const requestUrl = `https://www.overpass-api.de/api/interpreter?data=[out:json][timeout:25];nwr(around:10000,${latitude},${longitude})[%22amenity%22=%22hospital%22];out%20center;`;
