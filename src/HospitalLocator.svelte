@@ -1,38 +1,5 @@
 <script>
 
-    function geoFindMe() {
-
-        const status = document.querySelector('#status');
-        const mapLink = document.querySelector('#map-link');
-
-        mapLink.href = '';
-        mapLink.textContent = '';
-
-        function success(position) {
-            latitude = position.coords.latitude;
-            longitude = position.coords.longitude;
-
-
-            status.textContent = '';
-            mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
-            mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
-        }
-
-        function error() {
-            status.textContent = 'Unable to retrieve your location';
-        }
-
-        if (!navigator.geolocation) {
-            status.textContent = 'Geolocation is not supported by your browser';
-        } else {
-            status.textContent = 'Locating…';
-            navigator.geolocation.getCurrentPosition(success, error);
-        }
-
-    }
-
-    geoFindMe();
-    console.log(latitude + "" + longitude)
 
     /**/
 
@@ -94,35 +61,6 @@
 
     }
 
-    // Do stuff with hospital data
-    async function getNearbyHospitals(lat, long) {
-
-        // Access API
-
-        let hospitalListAPI = "https://www.overpass-api.de/api/interpreter?data=[out:json][timeout:25];nwr(around:10000," + lat + "," + long + ")[%22amenity%22=%22hospital%22];out%20center;"
-
-        const hospitalListResponse = await fetch(hospitalListAPI, {});
-        const hospitalListJSON = await hospitalListResponse.json();
-
-        // Loop through list of hospitals, extract coordinates & name, add to map
-
-        var hospitalList = [];
-
-        for (var i = 0; i < hospitalListJSON["elements"].length; i++) {
-
-            var element = hospitalListJSON["elements"][i];
-
-            var hospitalData = [
-                element["center"]["lat"], element["center"]["lon"], element["tags"]["name"]
-            ];
-
-            hospitalList = [...hospitalList, hospitalData];
-
-        }
-
-        return hospitalList;
-
-    }
 
     // There might be a better way of doing this in Svelte but idk
 
