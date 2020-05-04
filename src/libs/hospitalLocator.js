@@ -30,12 +30,12 @@ hospitalLocator._getLocationFromBrowser = function () {
 
     return new Promise(function (resolve, reject) {
         if (cachedLocation.success) {
-            resolve(cachedLocation.data);
+            return resolve(cachedLocation.data);
         }
 
         if (!navigator.geolocation) {
             // unsupported
-            reject();
+            return reject();
         }
 
         navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
