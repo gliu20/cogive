@@ -19,7 +19,7 @@ hospitalLocator._getLocationFromIp = async function (ipAddress) {
 /**
  * Returns object with latitude and longitude properties
  */
-hospitalLocator._getLocationFromBrowser = function () {
+hospitalLocator.getLocationFromBrowser = function () {
     const cachedLocation = cache.get("location");
 
     const options = {
@@ -53,7 +53,7 @@ hospitalLocator._getLocationFromBrowser = function () {
             resolve({longitude,latitude})
         }
 
-        function onError () {
+        function onError (err) {
             reject()
         }
     });
@@ -68,7 +68,7 @@ hospitalLocator.getHospitalsNearby = async function () {
         return cachedHospitalList.data;
     }
 
-    const position = await hospitalLocator._getLocationFromBrowser();
+    const position = await hospitalLocator.getLocationFromBrowser();
 
     const latitude = position.latitude || 0;
     const longitude = position.longitude || 0;
