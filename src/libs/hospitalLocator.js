@@ -38,12 +38,12 @@ hospitalLocator._getLocationFromBrowser = function () {
                 reject();
             }
 
-            const latitude = coords.latitude;
-            const longitude = coords.longitude;
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
             
             resolve({longitude,latitude})
         }
-        
+
         function onError () {
             reject()
         }
