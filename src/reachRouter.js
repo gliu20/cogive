@@ -1,6 +1,4 @@
-import {Router, Link} from "@reach/router";
-import React from "react"
-import ReactDOM from "react-dom"
+
 const HospitalPage = props => {
     return (
         <div className="container-hospital">
@@ -23,16 +21,8 @@ const HospitalPage = props => {
         </div>
     )
 }
-/*
-HospitalRouter takes you to the hospital page and displays information about it. 
-example usage:
-    <HospitalRouter/>
-    <Link to="hospital/apollo/india/west-bengal/kolkata/some street some place/100/apollo@someProvider.com/9870134567>
-import dependancies(to be safe):
-    import {Router, Link} from "@reach/router";
-    import React from "react"
-    import ReactDOM from "react-dom"
-*/ 
+
+
 const HospitalRouter = props => {
     return(
         <Router>
