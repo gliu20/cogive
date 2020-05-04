@@ -18,7 +18,7 @@
     let mounted = false;
     let mapboxLoaded = false;
     let location;
-    window.map="blah";
+    let map;
 
     onMount(() => {
         mounted = true;
