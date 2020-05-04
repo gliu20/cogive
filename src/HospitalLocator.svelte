@@ -1,12 +1,8 @@
 <script>
-
-
     /**/
-
     let country = "";
     let state = "";
     let city = "";
-
     let status = "";
     let searchResult = "";
     const database = firebase.database()
@@ -20,18 +16,11 @@
             .then(function (snapshot) {
                 searchResult = JSON.stringify(snapshot.val());
             })
-
-
         status = `Found ${searchResult}`;
     }, function () {
         status = `Searching for ${country} in ${state} in ${city}...`;
     });
-
     $: deferrables(country, state, city)
-
-    // TO-DO: FIND LAT AND LONG FROM COUNTRY, STATE, CITY
-
-
 </script>
 
 
