@@ -98,6 +98,6 @@ hospitalLocator.getHospitalsNearby = async function () {
     return hospitalListJson;
 }
 
-hospitalLocator.generateGeoJson (hospitalListJson) {
+hospitalLocator.generateGeoJson = function (hospitalListJson) {
     // TODO
 }
