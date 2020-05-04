@@ -1,7 +1,9 @@
 const hospitalLocator = {};
 
+
 /**
  * doesn't work b/c the api seems to be disabled
+ * TODO add caching
  */
 hospitalLocator._getLocationFromIp = async function (ipAddress) {
     const requestUrl = `https://ipapi.co/json/`;
@@ -18,6 +20,8 @@ hospitalLocator._getLocationFromIp = async function (ipAddress) {
  * Returns object with latitude and longitude properties
  */
 hospitalLocator._getLocationFromBrowser = function () {
+    const cachedLocation = cache.get("location");
+
     const options = {
         enableHighAccuracy: true,
         timeout: 5000,
@@ -25,6 +29,10 @@ hospitalLocator._getLocationFromBrowser = function () {
     };
 
     return new Promise (function (resolve,reject) {
+        if (cachedLocation.success) {
+            resolve(cachedLocation.data);
+        }
+
         if (!navigator.geolocation) {
             // unsupported
             reject();
@@ -41,6 +49,7 @@ hospitalLocator._getLocationFromBrowser = function () {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
             
+            cache.set("location", {longitude,latitude})
             resolve({longitude,latitude})
         }
 
@@ -52,6 +61,13 @@ hospitalLocator._getLocationFromBrowser = function () {
 
 
 hospitalLocator.getHospitalsNearby = async function () {
+
+    const cachedHospitalList = cache.get("hospitalList");
+
+    if (cachedHospitalList.success) {
+        return cachedHospitalList.data;
+    }
+
     const position = await hospitalLocator._getLocationFromBrowser();
 
     const latitude = position.latitude || 0;
@@ -60,6 +76,8 @@ hospitalLocator.getHospitalsNearby = async function () {
 
     const hospitalList = await fetch(requestUrl,{});
     const hospitalListJson = await hospitalList.json();
+
+    cache.set("hospitalList",hospitalListJson);
 
     return hospitalListJson;
 }
