@@ -4,9 +4,9 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js' on:load={onMapboxLoaded}></script>
 
     <!-- custom api for getting hosptial data -->
-    <script src="libs/cache.js"></script>
-    <script src="libs/tokens.js"></script>
-    <script src="libs/hospitalLocator.js"></script>
+    <script src="libs/cache.js" on:load={onCacheLoaded}></script>
+    <script src="libs/tokens.js" on:load={onTokensLoaded}></script>
+    <script src="libs/hospitalLocator.js" on:load={onHospitalLocatorLoaded}></script>
 </svelte:head>
 
 <script>
@@ -17,20 +17,38 @@
     // everything is ready
     let mounted = false;
     let mapboxLoaded = false;
+    let cacheLoaded = false;    
+    let tokensLoaded = false;
+    let hospitalLocatorLoaded = false;    
     let location;
     let map;
+
     onMount(() => {
         mounted = true;
         onReady();
     })
+
     function onMapboxLoaded() {
         mapboxLoaded = true;
         onReady();
     }
+    function onCacheLoaded () {
+        cacheLoaded = true;
+        onReady();
+    }
+    function onTokensLoaded () {
+        tokensLoaded = true;
+        onReady();
+    }
+    function onHospitalLocatorLoaded () {
+        hospitalLocatorLoaded = true;
+        onReady();
+    }
+
     async function onReady() {
         // this runs when everything is ready
-        // aka mapbox loaded and component is mounted
-        if (mounted && mapboxLoaded) {
+        // aka mapbox loaded and all libs and component is mounted
+        if (mounted && mapboxLoaded && cacheLoaded && tokensLoaded && hospitalLocatorLoaded) {
             mapboxgl.accessToken = tokens.mapbox;
             map = new mapboxgl.Map({
                 container: 'map',
