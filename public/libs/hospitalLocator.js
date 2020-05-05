@@ -20,7 +20,6 @@ hospitalLocator._getLocationFromIp = async function (ipAddress) {
  * Returns object with latitude and longitude properties
  */
 hospitalLocator._getLocationFromBrowser = function () {
-    const cachedLocation = cache.get("location");
 
     const options = {
         enableHighAccuracy: true,
@@ -29,9 +28,6 @@ hospitalLocator._getLocationFromBrowser = function () {
     };
 
     return new Promise(function (resolve, reject) {
-        if (cachedLocation.success) {
-            return resolve(cachedLocation.data);
-        }
 
         if (!navigator.geolocation) {
             // unsupported
@@ -49,7 +45,6 @@ hospitalLocator._getLocationFromBrowser = function () {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
 
-            cache.set("location", { longitude, latitude })
             resolve({ longitude, latitude })
         }
 
@@ -61,6 +56,11 @@ hospitalLocator._getLocationFromBrowser = function () {
 
 
 hospitalLocator.getLocationFromBrowser = async function () {
+    const cachedLocation = cache.get("location");
+
+    if (cachedLocation.success) {
+        return cachedLocation.data;
+    }
 
     let location;
 
@@ -68,11 +68,12 @@ hospitalLocator.getLocationFromBrowser = async function () {
         location = await hospitalLocator._getLocationFromBrowser();
     }
     catch (err) {
-        // oh know but we are not affected
+        // oh no! but we are not affected
         // we just give default coordinate and let the system deal with it
         location = {latitude:41,longitude:-74};
     }
 
+    cache.set("location", location)
     return location;
 }
 
