@@ -108,7 +108,7 @@ hospitalLocator.toHopsitalDigest = function (hospitalList) {
         let latitude;
         let longitude;
 
-        let { name, phone, website } = item.tags;
+        let { name, phone, website,beds } = item.tags;
 
         let city = item.tags["addr:city"] || "Unknown";
         let housenumber = item.tags["addr:housenumber"] || "Unknown";
@@ -118,6 +118,7 @@ hospitalLocator.toHopsitalDigest = function (hospitalList) {
         name = name || "Unknown";
         phone = phone || "Unknown";
         website = website || `https://google.com/search?q=hospital+at+${name.replace(/ /g, "+")}`;
+        beds = beds || 0;
 
         if (item.lat) {
             latitude = item.lat;
@@ -131,7 +132,8 @@ hospitalLocator.toHopsitalDigest = function (hospitalList) {
         hospitalDigest.push({
             latitude, longitude, 
             name, phone, website,
-            city, housenumber, postcode, street
+            city, housenumber, postcode, street,
+            beds
         })
 
     })
