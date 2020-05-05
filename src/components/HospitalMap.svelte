@@ -12,6 +12,7 @@
 <script>
             
     import { onMount } from 'svelte';
+
     // keep track of what's loaded;
     // we need this to initialize map only when 
     // everything is ready
@@ -19,7 +20,8 @@
     let mapboxLoaded = false;
     let cacheLoaded = false;    
     let tokensLoaded = false;
-    let hospitalLocatorLoaded = false;    
+    let hospitalLocatorLoaded = false;
+
     let location;
     let map;
 
@@ -57,7 +59,7 @@
                 // so ppl will see a map somewhere even if there are not coordinates available
                 center: [0, 0],
                 zoom: 1,
-                interactive: false
+                interactive: true
             });
             
             
@@ -73,6 +75,9 @@
             center: [location.longitude,location.latitude],
             zoom: 10
         });
+
+        map.setMinZoom(10);
+        
     }
     async function addHospitalMarkers() {
         const hospitalList = await hospitalLocator.getHospitalsNearby();
