@@ -86,39 +86,21 @@
                 longitude = item.center.lon;
             }
 
-            addHospitalPopup(map,latitude,longitude);
-            addHospitalMarker(map,latitude,longitude);
+            addHospitalMarker(map,latitude,longitude, "everyhospitalever");
         })
     }
 
-    function addHospitalMarker(map, latitude, longitude) {
+    function addHospitalMarker(map, latitude, longitude, hospitalDetails) {
         var coordinates = [longitude, latitude];
         
+        var popup = new mapboxgl.Popup()
+            .setHTML(hospitalDetails);
+
         var marker = new mapboxgl.Marker()
             .setLngLat(coordinates)
-            //.setPopup(popup) // TODO
+            .setPopup(popup)
             .addTo(map);
     }
-    
-    
-    function addHospitalPopup(map, latitude, longitude) {
-        var address = ""
-        var coordinates = [longitude, latitude];
-        const KEY = tokens.googleMaps;
-        let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${KEY}`;
-        fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            address = data.results[0].formatted_address
-            var popup = new mapboxgl.Popup()
-            .setLngLat(coordinates)
-            .setHTML(address)
-            .addTo(map);   
-        })
-        
-        .catch(err => console.warn(err.message));
-         
-    };
     
      
     
