@@ -70,7 +70,7 @@ hospitalLocator.getLocationFromBrowser = async function () {
     catch (err) {
         // oh no! but we are not affected
         // we just give default coordinate and let the system deal with it
-        location = {latitude:41,longitude:-74};
+        location = { latitude: 41, longitude: -74 };
     }
 
     cache.set("location", location)
@@ -99,6 +99,42 @@ hospitalLocator.getHospitalsNearby = async function () {
     return hospitalListJson;
 }
 
-hospitalLocator.generateGeoJson = function (hospitalListJson) {
-    // TODO
+hospitalLocator.toHopsitalDigest = function (hospitalList) {
+
+    const hospitalDigest = [];
+
+    hospitalList.elements.forEach(item => {
+
+        let latitude;
+        let longitude;
+
+        let { name, phone, website } = item.tags;
+
+        let city = item.tags["addr:city"] || "Unknown";
+        let housenumber = item.tags["addr:housenumber"] || "Unknown";
+        let postcode = item.tags["addr:postcode"] || "Unknown";
+        let street = item.tags["addr:street"] || "Unknown";
+
+        name = name || "Unknown";
+        phone = phone || "Unknown";
+        website = website || `https://google.com/search?q=hospital+at+${name.replace(/ /g, "+")}`;
+
+        if (item.lat) {
+            latitude = item.lat;
+            longitude = item.lon;
+        }
+        else {
+            latitude = item.center.lat;
+            longitude = item.center.lon;
+        }
+
+        hospitalDigest.push({
+            latitude, longitude, 
+            name, phone, website,
+            city, housenumber, postcode, street
+        })
+
+    })
+
+    return hospitalDigest;
 }

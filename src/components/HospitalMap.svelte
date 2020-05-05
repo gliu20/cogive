@@ -23,6 +23,7 @@
     let hospitalLocatorLoaded = false;
 
     let location;
+    let hospitals;
     let map;
 
     onMount(() => {
@@ -77,60 +78,50 @@
             [location.longitude - .15,location.latitude - .15],//southwest
             [location.longitude + .15,location.latitude + .15]//northeast
         ])
-
+        
         map.setMaxBounds([
             [location.longitude - .15,location.latitude - .15],//southwest
             [location.longitude + .15,location.latitude + .15]//northeast
         ])
 
+        // force mapbox to update zoom levels due to new bounds
+        map.flyTo({
+            center: [location.longitude,location.latitude],
+            zoom: 10
+        });
         
     }
+
+
     async function addHospitalMarkers() {
         const hospitalList = await hospitalLocator.getHospitalsNearby();
+        const hospitalDigest = hospitalLocator.toHopsitalDigest(hospitalList);
 
-        hospitalList.elements.forEach(item => {
-            
-            let latitude;
-            let longitude;
 
-            let address;
+        hospitalDigest.forEach((item) => {
+            const {
+                latitude, longitude, 
+                name, phone, website,
+                city, housenumber, postcode, street
+            } = item;
 
-            let {name,phone,website} = item.tags;
-
-            let city = item.tags["addr:city"] || "Unknown";
-            let housenumber = item.tags["addr:housenumber"] || "Unknown";
-            let postcode = item.tags["addr:postcode"] || "Unknown";
-            let street = item.tags["addr:street"] || "Unknown";
-
-            name = name || "Unknown";
-            phone = phone || "Unknown";
-            website = website || `https://google.com/search?q=hospital+at+${name.replace(/ /g,"+")}`;
-
-            address = [
+            const address = [
                 `${housenumber} ${street}<br/>`,
                 `${city} ${postcode}`
             ].join("\n");
 
-            let hospitalDetails = [
+            const hospitalDetails = [
                 `<a href="${website}" rel="noopener noreferrer" target="_blank"><strong>${name}</strong></a><br/>`,
                 `<em>${phone}</em><br/>`,
                 `<br/>`,
                 `${address}`
             ].join("\n");
 
-            if (item.lat) {
-                latitude = item.lat;
-                longitude = item.lon;
-            }
-            else {
-                latitude = item.center.lat;
-                longitude = item.center.lon;
-            }
-
-
-            // TODO get hospital details
             addHospitalMarker(map,latitude,longitude, hospitalDetails);
         })
+        
+
+        
     }
 
     function addHospitalMarker(map, latitude, longitude, hospitalDetails) {
@@ -150,3 +141,5 @@
 </script>
 
 <div id="map"></div>
+
+<slot hospitals={hospitals}></slot>
