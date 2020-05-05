@@ -6,14 +6,17 @@
 </script>
 
 <style>
-    .hospital-locator-widget {
-        display: flex;
-        height: 30rem;
+    @media (min-width: 1000px) {
+        .hospital-locator-widget {
+            display: flex;
+            height: 30rem;
+        }
     }
 
     .hospital-map {
         flex: 2;
-        margin-right: 15px;
+        margin: 0px 15px;
+        height:30rem;
     }
 
     .hospital-list {
