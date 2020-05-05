@@ -53,7 +53,7 @@
     }
     async function addHospitalMarkers() {
         const hospitalList = await hospitalLocator.getHospitalsNearby();
-        let address;
+
         hospitalList.elements.forEach(item => {
             
             let latitude;
@@ -107,4 +107,3 @@
 <button on:click={locate}>Locate</button>
 
 <button on:click={addHospitalMarkers}>add markers</button>
-<div class="footer">© CoGive 2020</div>
