@@ -87,6 +87,7 @@
                 longitude = item.center.lon;
             }
 
+            // TODO get hospital details
             addHospitalMarker(map,latitude,longitude, "everyhospitalever");
         })
     }
@@ -109,6 +110,4 @@
 
 <div id="map"></div>
 
-<button on:click={locate}>Locate</button>
-
-<button on:click={addHospitalMarkers}>add markers</button>
+<button on:click={locate}>Re-center map at my location</button>
