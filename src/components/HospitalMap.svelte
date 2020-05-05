@@ -60,6 +60,7 @@
             });
             
             locate()
+            addHospitalMarkers()
         }
     }
     async function locate() {
