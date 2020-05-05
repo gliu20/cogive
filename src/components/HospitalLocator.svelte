@@ -1,18 +1,19 @@
 <script>
     import HospitalMap from "./HospitalMap.svelte";
+    import Responsive from "./Responsive.svelte";
 
     let hospitalDigest = [];
 </script>
 
 <style>
-    section {
+    .hospital-locator-widget {
         display: flex;
-        height:30rem;
+        height: 30rem;
     }
 
     .hospital-map {
         flex: 2;
-        margin-right:15px;
+        margin-right: 15px;
     }
 
     .hospital-list {
@@ -23,50 +24,54 @@
     }
 
     .card {
-        border-radius:8px;
-        padding:10px;
+        border-radius: 8px;
+        padding: 10px;
         box-shadow: 0px 0px 2px 1px #eee;
-        margin:8px 0px;
-        display:flex;
-        background:#fff;
+        margin: 8px 0px;
+        display: flex;
+        background: #fff;
     }
+
     .card-avatar {
         margin-right: 15px;
-        display:flex;
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
+
     .avatar-label {
         text-align: center;
         text-transform: uppercase;
         font-size: .875rem;
     }
+
     .avatar {
         border-radius: 999px;
-        background-color: rgba(0,0,0,.6);
-        color:#fff;
+        background-color: rgba(0, 0, 0, .6);
+        color: #fff;
         padding: 10px;
         width: 60px;
         height: 60px;
-        margin:0;
-        display:flex;
+        margin: 0;
+        display: flex;
         align-items: center;
         justify-content: center;
-        font-size:1.15rem;
+        font-size: 1.15rem;
     }
+
     .card-details {
-        flex:1;
+        flex: 1;
     }
 </style>
-
-<section>
-    <div class="hospital-map">
-        <HospitalMap bind:hospitalDigest></HospitalMap>
-    </div>
-    <div class="hospital-list">
-        <h2>Find a hospital in need nearby.</h2>
-        {#each hospitalDigest as hospital}
+<Responsive>
+    <div class="hospital-locator-widget">
+        <div class="hospital-map">
+            <HospitalMap bind:hospitalDigest></HospitalMap>
+        </div>
+        <div class="hospital-list">
+            <h2>Find a hospital in need nearby.</h2>
+            {#each hospitalDigest as hospital}
             <div class="card">
                 <div class="card-avatar">
                     <p class="avatar">{hospital.beds * 2}</p>
@@ -83,4 +88,4 @@
             </div>
         {/each}
     </div>
-</section>
+</Responsive>
