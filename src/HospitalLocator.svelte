@@ -5,8 +5,10 @@
     let city = "";
     let status = "";
     let searchResult = "";
+
     const database = firebase.database()
     const hospitalsRef = database.ref("hospitals");
+
     const deferrables = debounce(1000, function () {
         hospitalsRef
             .child(country)
@@ -20,6 +22,7 @@
     }, function () {
         status = `Searching for ${country} in ${state} in ${city}...`;
     });
+    
     $: deferrables(country, state, city)
 </script>
 
