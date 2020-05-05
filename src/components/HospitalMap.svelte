@@ -76,6 +76,7 @@
             
             let latitude;
             let longitude;
+
             if (item.lat) {
                 latitude = item.lat;
                 longitude = item.lon;
@@ -84,15 +85,18 @@
                 latitude = item.center.lat;
                 longitude = item.center.lon;
             }
+
             addHospitalPopup(map,latitude,longitude);
             addHospitalMarker(map,latitude,longitude);
         })
     }
+
     function addHospitalMarker(map, latitude, longitude) {
         var coordinates = [longitude, latitude];
         
         var marker = new mapboxgl.Marker()
             .setLngLat(coordinates)
+            //.setPopup(popup) // TODO
             .addTo(map);
     }
     
@@ -100,7 +104,7 @@
     function addHospitalPopup(map, latitude, longitude) {
         var address = ""
         var coordinates = [longitude, latitude];
-        const KEY = "AIzaSyAtJEFPjooKhSStCp1CUJrQc22duqrkFJ4";
+        const KEY = tokens.googleMaps;
         let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${KEY}`;
         fetch(url)
         .then(response => response.json())
