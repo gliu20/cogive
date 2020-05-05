@@ -1,0 +1,1 @@
+<div class="footer">© CoGive 2020</div>
