@@ -8,6 +8,40 @@
     section {
         display: flex;
     }
+    .card {
+        border-radius:8px;
+        padding:10px;
+        box-shadow: 0px 0px 2px 1px #eee;
+        margin:8px 0px;
+        display:flex;
+    }
+    .card-avatar {
+        margin-right: 10px;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .avatar-label {
+        text-transform: uppercase;
+        font-size: .875rem;
+    }
+    .avatar {
+        border-radius: 999px;
+        background-color: rgba(0,0,0,.6);
+        color:#fff;
+        padding: 10px;
+        width: 60px;
+        height: 60px;
+        margin:0;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        font-size:1.15rem;
+    }
+    .card-details {
+        flex:1;
+    }
 </style>
 
 <section>
@@ -17,8 +51,8 @@
         {#each hospitalDigest as hospital}
             <div class="card">
                 <div class="card-avatar">
-                    <p class="avatar-label">Estimated PPE need</p>
-                    <p class="avatar">{hospital.beds}</p>
+                    <p class="avatar">{hospital.beds * 2}</p>
+                    <p class="avatar-label">Est. PPE need</p>
                 </div>
                 <div class="card-details">
                     <h3><a href={hospital.website} rel="noopener noreferrer" target="_blank">{hospital.name}</a></h3>

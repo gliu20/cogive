@@ -118,7 +118,7 @@ hospitalLocator.toHopsitalDigest = function (hospitalList) {
         name = name || "Unknown";
         phone = phone || "Unknown";
         website = website || `https://google.com/search?q=hospital+at+${name.replace(/ /g, "+")}`;
-        beds = beds || 0;
+        beds = beds || 100;
 
         if (item.lat) {
             latitude = item.lat;
