@@ -66,6 +66,8 @@ button:not(:disabled):active {
 button:focus {
 	border-color: #666;
 }
+
+/*
 .nav{
 	display:flex
 }
@@ -74,12 +76,4 @@ button:focus {
     width: 500px;
     height: 500px;
 }
-
-.marker {
-  background: red;
-  background-size: cover;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  cursor: pointer;
-}
+*/
