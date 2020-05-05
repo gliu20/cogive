@@ -6,15 +6,16 @@
 </script>
 
 <style>
+    .wrapper  { padding:4px; }
     .container {
         margin:auto;
     }
     @media (min-width: 700px) { .container {width:650px;} }
-    @media (min-width: 1000px) { .container {width:900px;} }
-    @media (min-width: 1200px) { .container {width:1100px;} }
+    @media (min-width: 1000px) { .container {width:950px;} }
+    @media (min-width: 1200px) { .container {width:1150px;} }
 </style>
 
-<section style="{`background-color:${background};`} {`color:${color};`}">
+<section class="wrapper" style="{`background-color:${background};`} {`color:${color};`}">
     <div class="container">
         <slot></slot>
     </div>
