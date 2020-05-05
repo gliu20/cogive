@@ -14,6 +14,8 @@
     @media (min-width: 1200px) { .container {width:1100px;} }
 </style>
 
-<div class="container" style="{`background-color:${background};`} {`color:${color};`}">
-    <slot></slot>
-</div>
+<section style="{`background-color:${background};`} {`color:${color};`}">
+    <div class="container">
+        <slot></slot>
+    </div>
+</section>
