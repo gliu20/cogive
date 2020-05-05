@@ -13,6 +13,8 @@
             
     import { onMount } from 'svelte';
 
+    export let hospitalDigest
+
     // keep track of what's loaded;
     // we need this to initialize map only when 
     // everything is ready
@@ -23,7 +25,6 @@
     let hospitalLocatorLoaded = false;
 
     let location;
-    let hospitals;
     let map;
 
     onMount(() => {
@@ -64,7 +65,6 @@
             });
             
             
-
             await addHospitalMarkers()
             locate()
         }
@@ -95,7 +95,7 @@
 
     async function addHospitalMarkers() {
         const hospitalList = await hospitalLocator.getHospitalsNearby();
-        const hospitalDigest = hospitalLocator.toHopsitalDigest(hospitalList);
+        hospitalDigest = hospitalLocator.toHopsitalDigest(hospitalList);
 
 
         hospitalDigest.forEach((item) => {
@@ -141,5 +141,3 @@
 </script>
 
 <div id="map"></div>
-
-<slot hospitals={hospitals}></slot>
