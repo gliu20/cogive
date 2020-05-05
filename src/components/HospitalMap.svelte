@@ -9,6 +9,13 @@
     <script src="libs/hospitalLocator.js" on:load={onHospitalLocatorLoaded}></script>
 </svelte:head>
 
+<style>
+    #map {
+        width:100%;
+        height:100%;
+    }
+</style>
+
 <script>
             
     import { onMount } from 'svelte';

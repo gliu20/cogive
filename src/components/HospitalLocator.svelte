@@ -7,7 +7,21 @@
 <style>
     section {
         display: flex;
+        height:30rem;
     }
+
+    .hospital-map {
+        flex: 2;
+        margin-right:15px;
+    }
+
+    .hospital-list {
+        flex: 1;
+        overflow-y: auto;
+        height: 100%;
+        padding: 0px 10px;
+    }
+
     .card {
         border-radius:8px;
         padding:10px;
@@ -16,13 +30,14 @@
         display:flex;
     }
     .card-avatar {
-        margin-right: 10px;
+        margin-right: 15px;
         display:flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
     .avatar-label {
+        text-align: center;
         text-transform: uppercase;
         font-size: .875rem;
     }
@@ -45,14 +60,16 @@
 </style>
 
 <section>
-    <HospitalMap bind:hospitalDigest></HospitalMap>
-    <div>
+    <div class="hospital-map">
+        <HospitalMap bind:hospitalDigest></HospitalMap>
+    </div>
+    <div class="hospital-list">
         <h2>Find a hospital in need nearby.</h2>
         {#each hospitalDigest as hospital}
             <div class="card">
                 <div class="card-avatar">
                     <p class="avatar">{hospital.beds * 2}</p>
-                    <p class="avatar-label">Est. PPE need</p>
+                    <p class="avatar-label">Estimated<br/> PPE need</p>
                 </div>
                 <div class="card-details">
                     <h3><a href={hospital.website} rel="noopener noreferrer" target="_blank">{hospital.name}</a></h3>
