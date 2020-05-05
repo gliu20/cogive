@@ -71,12 +71,18 @@
     async function locate() {
         location = await hospitalLocator.getLocationFromBrowser();
 
-        map.flyTo({
-            center: [location.longitude,location.latitude],
-            zoom: 10
-        });
+        
 
-        map.setMinZoom(10);
+        map.fitBounds([
+            [location.longitude - .15,location.latitude - .15],//southwest
+            [location.longitude + .15,location.latitude + .15]//northeast
+        ])
+
+        map.setMaxBounds([
+            [location.longitude - .15,location.latitude - .15],//southwest
+            [location.longitude + .15,location.latitude + .15]//northeast
+        ])
+
         
     }
     async function addHospitalMarkers() {
