@@ -28,6 +28,7 @@
         box-shadow: 0px 0px 2px 1px #eee;
         margin:8px 0px;
         display:flex;
+        background:#fff;
     }
     .card-avatar {
         margin-right: 15px;
