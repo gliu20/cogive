@@ -56,15 +56,19 @@
                 // why 0,0 b/c we will get coordinates later; 
                 // so ppl will see a map somewhere even if there are not coordinates available
                 center: [0, 0],
-                zoom: 1
+                zoom: 1,
+                interactive: false
             });
             
+            
+
+            await addHospitalMarkers()
             locate()
-            addHospitalMarkers()
         }
     }
     async function locate() {
         location = await hospitalLocator.getLocationFromBrowser();
+
         map.flyTo({
             center: [location.longitude,location.latitude],
             zoom: 10
@@ -78,6 +82,31 @@
             let latitude;
             let longitude;
 
+            let address;
+
+            let {name,phone,website} = item.tags;
+
+            let city = item.tags["addr:city"] || "Unknown";
+            let housenumber = item.tags["addr:housenumber"] || "Unknown";
+            let postcode = item.tags["addr:postcode"] || "Unknown";
+            let street = item.tags["addr:street"] || "Unknown";
+
+            name = name || "Unknown";
+            phone = phone || "Unknown";
+            website = website || `https://google.com/search?q=hospital+at+${name.replace(/ /g,"+")}`;
+
+            address = [
+                `${housenumber} ${street}<br/>`,
+                `${city} ${postcode}`
+            ].join("\n");
+
+            let hospitalDetails = [
+                `<a href="${website}" rel="noopener noreferrer" target="_blank"><strong>${name}</strong></a><br/>`,
+                `<em>${phone}</em><br/>`,
+                `<br/>`,
+                `${address}`
+            ].join("\n");
+
             if (item.lat) {
                 latitude = item.lat;
                 longitude = item.lon;
@@ -87,8 +116,9 @@
                 longitude = item.center.lon;
             }
 
+
             // TODO get hospital details
-            addHospitalMarker(map,latitude,longitude, "everyhospitalever");
+            addHospitalMarker(map,latitude,longitude, hospitalDetails);
         })
     }
 
@@ -109,5 +139,3 @@
 </script>
 
 <div id="map"></div>
-
-<button on:click={locate}>Re-center map at my location</button>
