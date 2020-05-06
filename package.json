@@ -5,7 +5,8 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "dev-arjun": "parcel public/index.html",
-    "start": "sirv public"
+    "start": "sirv public -s",
+    "start:dev": "sirv public --dev -s"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.2",

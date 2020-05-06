@@ -7,6 +7,6 @@
     import FrontPageBody from "../components/FrontPageBody.svelte"
 
 </script>
-<NavBar></NavBar>
 <FrontPageBody></FrontPageBody>
+
 <Footer></Footer>
