@@ -10,7 +10,7 @@
 <style>
 
 .frontpage-content {
-    margin-top: -5vh;
+    margin-top: -8vh;
     width: 100%;
     padding-left: 0vw;
     display: flex;
@@ -49,18 +49,10 @@
 .navbar {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-}
-
-.nav-button {
-    border: 2px dashed gray;
-    padding: 20px 0 20px 3vw;
-    margin: 3vw;
-    text-align: center;
-}
-
-.nav-button:hover {
-    border: 2px dashed black;
+    justify-content: space-between;
+    width: 80vw;
+    padding: 0;
+    margin: 5vh auto;
 }
 
 
@@ -80,10 +72,10 @@
 
         <nav class="nav">
             <ul class="navbar">
-                <div class="nav-button"><NavLink to="/about">About</NavLink></div>
-                <div class="nav-button"><NavLink to="/DonatePPE">Donate PPE</NavLink></div>
-                <div class="nav-button"><NavLink to="/BuildPPE">Build PPE</NavLink></div>
-                <div class="nav-button"><NavLink to ="/Fundraise">Fundraise</NavLink></div>
+                <button style="padding-left: 5vw;"><NavLink to="/about">About</NavLink></button>
+                <button style="padding-left: 5vw;"><NavLink to="/DonatePPE">Donate PPE</NavLink></button>
+                <button style="padding-left: 5vw;"><NavLink to="/BuildPPE">Build PPE</NavLink></button>
+                <button style="padding-left: 5vw;"><NavLink to ="/Fundraise">Fundraise</NavLink></button>
             </ul>
         </nav>
     </div>

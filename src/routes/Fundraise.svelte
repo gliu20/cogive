@@ -37,6 +37,12 @@
 	font-size: 1em;
 }
 */
+
+.button-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 </style>
 
 <NavBar></NavBar>
@@ -100,7 +106,7 @@
         </div>
         
         <h1 class="subtitle">Charities to donate money to</h1>
-        TODO: add links to reputable charities.
+        <h1>TODO: add links to reputable charities.</h1>
     </div>
 </div>
 </Responsive>

@@ -51,9 +51,17 @@ input[type="range"] {
 }
 
 button {
-	color: #333;
-	background-color: #f4f4f4;
+    color: #333;
+    padding: 2vh 2vw;
+    margin: 10px;
+    border: 2px dashed gray;
+	background-color: transparent;
 	outline: none;
+}
+
+button:hover {
+    color: #ff0056;
+    border: 2px dashed black;
 }
 
 button:disabled {

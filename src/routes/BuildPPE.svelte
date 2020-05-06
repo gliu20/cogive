@@ -13,7 +13,7 @@
 <Responsive>
 <div class="container">
     <h1 class="title">Producing PPE</h1>
-    <p>Making PPE can be easily done with a 3D printer or a laser cutter. Many schools or universities are likely to own this kind of equipment. Check and see if you can use these facilities to contribute!</p>
+    <p>Making PPE can be easily done with a 3D printer or a laser cutter. Many schools or universities are likely to own this kind of equipment in a Maker Space. Check and see if you can use these facilities to contribute!</p>
     <h1 class="subtitle">3D Printing Masks</h1>
         <h3>3D Printing</h3>
         <ul>
@@ -25,7 +25,7 @@
         <p>The “NanoHack” model by Copper3D is an open-sourced mask design. It is antiviral, reusable, modular, washable, recyclable and low-cost. This model - made of copper, which is effective in killing the coronavirus - can be downloaded anywhere and 3D printed with any FDM/FFF equipment, even a low cost one.</p>
         <a href="https://copper3d.com/hackthepandemic/">View the details for producing NanoHack masks here.</a>
         <br/><br/>
-        <a href="www.google.com">Here is a list of more 3D printing resources.</a>
+        <a href="https://3dprint.nih.gov/collections/covid-19-response">Here is a list of more approved 3D printed mask designs.</a>
         <h3>An important disclaimer:</h3>
         <p><i>3D printed PPE is unlikely to provide fluid barrier and air filtration protection like FDA-cleared surgical masks. However, they can still act as a physical barrier, and the need for PPE has become so desperate in many hospitals that any piece of equipment that remotely decreases the risk of transmission is appreciated. The FDA guidelines originally discouraged the use of most 3D printed PPE, but due to extremely heavy demand it has relaxed those restrictions.</i></p>
     <h1 class="subtitle">Laser Cutting Face Shields</h1>
@@ -39,7 +39,7 @@
         <p>For producing face shields, we recommend the simple laser cut face visor for use as PPE, designed by Kitronik. These sheilds are completely laser cut from polypropylene and can be done at speed.</p>
         <a href="https://www.kitronik.co.uk/blog/kitronik-make-nhs-frontline-ppe-visors/">View the details for producing Kitronik face shields here.</a>
         <br/><br/>
-        <a href="www.google.com">Here is a list of more laser cutting resources.</a>
+        <a href="https://www.ehs.washington.edu/system/files/resources/laser-cutter-safety.pdf">Here are some safety guidelines for using laser cutters.</a>
     <h1 class="subtitle">Sanitization</h1>
         <ul>
             <li>When handling materials, clean your hands with soap and water. If possible, wear gloves when sanitizing PPE.</li>
@@ -52,8 +52,12 @@
         <p>To ensure that PPE is produced safely, we also encourage students to follow FDA regulations and carry out the following checks on samples of their PPE.</p>
         <h3>FDA regulations</h3>
         <ul>
-            <li></li>
+            <li>Check the 3D-printed mask's seal for leaks.Confirm that they can breathe through any makeshift filter materials.</li>
+            <li>Exercise caution in surgical environments where the need for liquid barrier protection and flammability is a concern.</li>
+            <li>Recognize that the mask may not provide air filtration enough to prevent transmission of infectious agents.</li>
+            <li>Safely dispose of infectious materials and disinfect any part they intend to reuse.</li>
         </ul>
+        <a href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents/technical-considerations-additive-manufactured-medical-devices">Here are the FDA's technical guidelines.</a>
 </div>
 </Responsive>
 
