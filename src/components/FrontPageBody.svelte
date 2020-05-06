@@ -3,7 +3,7 @@
 </script>
 <style>
 .frontpage-content {
-    width: 100vw;
+    width: 100%;
     padding-left: 0vw;
     display: flex;
     flex: row;
@@ -45,4 +45,5 @@
             </div>
             <img src="mask.svg" id="maskLogo" alt="mask">
         </div>
+    </div>
 </Responsive>
