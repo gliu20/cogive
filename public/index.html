@@ -24,7 +24,7 @@
 		https://firebase.google.com/docs/web/setup#available-libraries -->
 	<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
 
 
 	<script>
@@ -42,6 +42,7 @@
 		// Initialize Firebase
 		firebase.initializeApp(firebaseConfig);
 		firebase.analytics();
+		firebase.auth();
 		const signIn = (email, password) => {
 			firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
   			// Handle Errors here.
@@ -78,7 +79,7 @@
   			}
 		});
 		}
-		var user = firebase.auth.currentUser;
+		var user = firebase.auth().currentUser;
 		const verifyEmail = () => {
 			
 			user.sendEmailVerification().then(function() {
