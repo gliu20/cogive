@@ -39,19 +39,14 @@
 
 <Responsive>
     <nav class="nav">
-    
         <ul class="navbar">
-            <!-- <li class="nav-element"></li><a Link to="/" class = "nav-link">Home</a></Link>
-            <li class="nav-element"></li><a Link to="about" class = "nav-link">About </a></Link>
-            <li class="nav-element"></li><a Link to="blog" class = "nav-link">Blog</a></Link> -->
             <NavLink to="/" >Home</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/DonatePPE">Donate PPE</NavLink>
             <NavLink to="/BuildPPE">Build PPE</NavLink>
             <NavLink to ="/Fundraise">Fundraise</NavLink>
-
         </ul>
-        <img src="logo.png" id="navLogo" alt="logo">
+        <img src="logo.png" id="navLogo" alt="logo"/>
     </nav>
     <div>
         <Route path="about" component="{About}" />

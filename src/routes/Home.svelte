@@ -9,5 +9,4 @@
 </script>
 <NavBar></NavBar>
 <FrontPageBody></FrontPageBody>
-<HospitalLocator></HospitalLocator>
 <Footer></Footer>

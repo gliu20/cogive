@@ -8,8 +8,15 @@
         text-align: center;
         padding: 0;
     }
+    #footer-wrapper {
+        height: 8vh;
+        color: #fff;
+        background:#333;
+        display: flex;
+        align-items: center;
+    }
 </style>
 
-<Responsive color="#fff" background="#333">
+<div id="footer-wrapper">
     <footer class="footer">© CoGive 2020</footer>
-</Responsive>
+</div>

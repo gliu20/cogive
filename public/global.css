@@ -78,3 +78,25 @@ button:focus {
     height: 500px;
 }
 */
+
+.title {
+    font-size: 4vw;
+    text-decoration-line: underline;
+    text-decoration-thickness: 10px;
+}
+
+.subtitle {
+    font-size: 2vw;
+    color: #1155cc;
+}
+
+p, li {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+h3 {
+    color: #ff0056;
+    line-height: 1.8;
+    margin: 3vh auto;
+}

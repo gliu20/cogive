@@ -6,9 +6,11 @@
 </script>
 
 <style>
-    .wrapper  { padding:4px; }
+    .wrapper  { 
+        padding:4px;
+    }
     .container {
-        margin: 5vh auto;
+        margin: 8vh auto;
     }
     @media (min-width: 700px) { .container {width:650px;} }
     @media (min-width: 1000px) { .container {width:950px;} }
