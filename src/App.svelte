@@ -7,6 +7,10 @@
 	import { Router, Link, Route } from "svelte-routing";
 	import Home from "./routes/Home.svelte";
 	import About from "./routes/About.svelte";
+	import BuildPPE from "./routes/BuildPPE.svelte"
+    import DonatePPE from "./routes/DonatePPE.svelte"
+    import Fundaraise from "./routes/Fundraise.svelte"
+    import NavLink from "./components/NavLink.svelte";
 
   export let url = "";
 </script>
@@ -14,6 +18,9 @@
 <Router url="{url}">
   <div>
     <Route path="about" component="{About}" />
+    <Route path="BuildPPE" component="{BuildPPE}" />
+    <Route path="DonatePPE" component="{DonatePPE}" />
+    <Route path="Fundraise" component="{Fundaraise}" />
     <Route path="/"><Home /></Route>
   </div>
 </Router>
