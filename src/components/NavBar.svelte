@@ -1,5 +1,10 @@
 <script>
     import Responsive from "./Responsive.svelte";
+    import {Router, Link, Route} from "svelte-routing";
+    import Home from "../routes/Home.svelte";
+    import About from "../routes/About.svelte";
+    import NavLink from "./NavLink.svelte";
+
 </script>
 
 
@@ -12,44 +17,36 @@
     flex-direction: row;
     background-color: whitesmoke;
 }
-
-.navbar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    list-style-type: none;
-}
-
-#navLogo {
-    height: 4vw;
-    position: absolute;
-    top: 1.5vh;
-    right: 1.5vw;
-}
-
-.nav a {
-    margin-right: 3vw;
-    font-size: 1.2em;
-    font-weight: 500;
-    color: #1155cc;
-}
-
-.nav a:hover {
-    color: #ff0056;
-    text-decoration: none;
-}
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        list-style-type: none;
+    }
+    #navLogo {
+        height: 4vw;
+        position: absolute;
+        top: 1.5vh;
+        right: 1.5vw;
+    }
 
 </style>
 
 <Responsive>
     <nav class="nav">
+    
         <ul class="navbar">
-            <li class="nav-element"><a href="index.html" class="nav-link">Home</a></li>
-            <li class="nav-element"><a href="About.html" class="nav-link">About</a></li>
-            <li class="nav-element"><a href="#" class="nav-link">Donate PPE</a></li>
-            <li class="nav-element"><a href="#" class="nav-link">Build PPE</a></li>
-            <li class="nav-element"><a href="#" class="nav-link">Fundraise</a></li>
+            <!-- <li class="nav-element"></li><a Link to="/" class = "nav-link">Home</a></Link>
+            <li class="nav-element"></li><a Link to="about" class = "nav-link">About </a></Link>
+            <li class="nav-element"></li><a Link to="blog" class = "nav-link">Blog</a></Link> -->
+            <NavLink to="/" >Home</NavLink>
+            <NavLink to="/about">About</NavLink>
+            
         </ul>
         <img src="logo.png" id="navLogo" alt="logo">
     </nav>
+    <div>
+        <Route path="about" component="{About}" />
+        <Route path="/"><Home /></Route>
+  </div>
 </Responsive>
