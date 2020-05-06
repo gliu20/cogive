@@ -23,7 +23,7 @@ hospitalLocator._getLocationFromBrowser = function () {
 
     const options = {
         enableHighAccuracy: true,
-        timeout: 5000,
+        //timeout: 5000,//disable bc need wait for user
         maximumAge: 60000 // 60 seconds
     };
 
