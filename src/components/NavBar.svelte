@@ -13,13 +13,15 @@
 
 <style>
     .nav {
-    margin: 0;
-    width: 100vw;
-    height: 10vh;
-    display: flex;
-    flex-direction: row;
-    background-color: whitesmoke;
-}
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 10vh;
+        display: flex;
+        flex-direction: row;
+        background-color: whitesmoke;
+    }
     .navbar {
         display: flex;
         flex-direction: row;

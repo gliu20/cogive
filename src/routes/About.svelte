@@ -5,10 +5,12 @@
 	import NavBar from "../components/NavBar.svelte";
 	import HospitalLocator from "../components/HospitalLocator.svelte";
     import FrontPageBody from "../components/FrontPageBody.svelte"
+    import AboutContent from "../components/AboutContent.svelte"
 
 </script>
 
-<NavBar></NavBar>
+// <NavBar></NavBar>
 
+<AboutContent></AboutContent>
 
-<Footer></Footer>
+// <Footer></Footer>

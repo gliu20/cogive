@@ -8,7 +8,7 @@
 <style>
     .wrapper  { padding:4px; }
     .container {
-        margin:auto;
+        margin: 5vh auto;
     }
     @media (min-width: 700px) { .container {width:650px;} }
     @media (min-width: 1000px) { .container {width:950px;} }
