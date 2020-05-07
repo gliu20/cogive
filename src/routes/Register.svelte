@@ -7,7 +7,7 @@
     let email = '';
     let password = '';
     const handleRegisterForm = () => {
-        auth.createUserWithEmailAndPassword(email, password).then(function(result) {
+        auth.createUserWithEmailAndPassword(email, password).then(function (result) {
         let firebaseUser = auth.currentUser;
         if(firebaseUser) {
             let {email} = firebaseUser;
@@ -23,7 +23,7 @@
                 occupaiton: person
             })
         }
-        }).catch(error => alert(error.message));
+        }).catch(error => console.log(error));
         
     };
 </script>
