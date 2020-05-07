@@ -8,15 +8,16 @@ import {getInfo} from '../firebase.js'
 // const userInfo = database.ref("users/"+user.userid+"/rewards")
 var occupation = user.awards;
 console.log(occupation);
-var email=firebase.auth().currentUser.email;
+var email;
 firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
     			// User is signed in.
-            	return user.email;
+            	email = user.email;
   			} 
 			else {
     		// User is signed out.
-    		// ...
+            // ...
+            window.location.replace("https://cogive.now.sh/")
   			}
 		});
 </script>
