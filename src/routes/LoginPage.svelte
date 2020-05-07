@@ -52,111 +52,58 @@
 </script>
 
 <style>
-    #container {
-        position: fixed;
-        width: 340px;
-        height: 280px;
-        top: 50%;
-        left: 50%;
-        margin-top: -140px;
-        margin-left: -170px;
-        background: #fff;
-        border-radius: 3px;
-        border: 1px solid #ccc;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    .field {
+        color: black;
+        font-weight: bold;
+        font-size: 20px;
+        width: 30vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 3vh;
     }
     input[type=email], input[type=password] {
-        color: #777;
-        padding-left: 10px;
-        margin: 10px;
-        margin-top: 12px;
-        margin-left: 18px;
-        width: 290px;
+        color: #1155cc;
+        width: 20vw;
         height: 35px;
         border: 1px solid #c7d0d2;
+        border-bottom: 2px solid black;
         border-radius: 2px;
-        box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #f5f7f8;
         -webkit-transition: all .4s ease;
         -moz-transition: all .4s ease;
         transition: all .4s ease;
     }
-    label {
-        color: #555;
-        display: inline-block;
-        margin-left: 18px;
-        padding-top: 10px;
-        font-size: 14px;
-    }
     #lower {
-        background: #ecf2f5;
-        width: 100%;
-        height: 69px;
-        margin-top: 20px;
-        box-shadow: inset 0 1px 1px #fff;
-        border-top: 1px solid #ccc;
-        border-bottom-right-radius: 3px;
-        border-bottom-left-radius: 3px;
-    }
-    .login {
-        float: right;
-        margin-right: 20px;
-        margin-top: 20px;
-        width: 80px;
-        height: 30px;
-        font-size: 14px;
-        font-weight: bold;
-        color: #fff;
-        background-color: #acd6ef;
-        background-image: -webkit-gradient(linear, left top, left bottom, from(#acd6ef), to(#6ec2e8));
-        background-image: -moz-linear-gradient(top left 90deg, #acd6ef 0%, #6ec2e8 100%);
-        background-image: linear-gradient(top left 90deg, #acd6ef 0%, #6ec2e8 100%);
-        border-radius: 30px;
-        border: 1px solid #66add6;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .5);
-        cursor: pointer;
-    }
-    .googlelogin {
-        float: right;
-        margin-right: 20px;
-        margin-top: 20px;
-        width: 80px;
-        height: 30px;
-        font-size: 14px;
-        font-weight: bold;
-        color: #fff;
-        background-color: #acd6ef;
-        background-image: -webkit-gradient(linear, left top, left bottom, from(#acd6ef), to(#6ec2e8));
-        background-image: -moz-linear-gradient(top left 90deg, #acd6ef 0%, #6ec2e8 100%);
-        background-image: linear-gradient(top left 90deg, #acd6ef 0%, #6ec2e8 100%);
-        border-radius: 30px;
-        border: 1px solid #66add6;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .5);
-        cursor: pointer;
-    }
-    form {
-        margin-top: 20px;
+        width: 30vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 5vh;
+        padding-top: 3vh;
+        border-top: 2px dashed #ff0056;
     }
 </style>
 <NavBar></NavBar>
 
-<div id="container">
-    <div>
+<div id="userContainer">
+    <div class="field">
         <label for="email">Email</label>
         <input type="email" name="email" bind:value={email}>
     </div>
-    <div>
+    <div class="field">
         <label for="password">Password</label>
         <input type="password" name="password" bind:value={password}>
     </div>
     <div id="lower">
-        <button class="login" on:click={handleLoginForm}>Login</button>
-        <button class="googlelogin" on:click={handleGoogleLogin}>Google</button>
-        <button class="googlelogin" on:click={register}>Register</button>
-        <nav class="nav">
+        <button class="userButton" on:click={handleLoginForm}>Login</button>
+        <button class="userButton" on:click={handleGoogleLogin}>Google</button>
+        <button class="userButton" on:click={register}>Register</button>
+        <!-- <nav class="nav">
         <ul class="navbar">
             <NavLink to = "/Register">Register</NavLink>
-            </ul>
-            </nav>
+        </ul>
+        </nav> -->
     <Router url="{url}">
         <div>
         <Route path="Register" component="{Register}"></Route>

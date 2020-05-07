@@ -39,7 +39,7 @@
         cursor: pointer;
     }
     </style>
-<div id="container">
+<div id="userContainer">
     <div>
         <label for="email">Email</label>
         <input type="email" name="email" bind:value={email}>

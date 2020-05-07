@@ -24,7 +24,6 @@
     <Route path="Fundraise" component="{Fundaraise}" />
     <Route path="LoginPage" component="{LoginPage}" />
     <Route path="Register" component="{Register}" />
- />
     <Route path="/"><Home /></Route>
   </div>
 </Router>

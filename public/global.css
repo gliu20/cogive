@@ -108,3 +108,31 @@ h3 {
     line-height: 1.8;
     margin: 3vh auto;
 }
+
+/* For Login and Signup */
+#userContainer {
+    margin: 20vh auto;
+    width: 50vw;
+    min-height: 40vh;
+    max-height: 50vh;
+    border: 3px solid #1155cc;
+    background-color: rgb(253, 253, 253);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh 0;
+}
+
+.userButton {
+    background-color: #333;
+    color: white;
+    border: 2px solid transparent;
+}
+
+.userButton:hover {
+    background-color: white;
+    color: #ff0056;
+    border: 2px solid black;
+}
