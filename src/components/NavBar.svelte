@@ -7,7 +7,8 @@
     import DonatePPE from "../routes/DonatePPE.svelte"
     import Fundaraise from "../routes/Fundraise.svelte"
     import NavLink from "./NavLink.svelte";
-
+    import LoginPage from "../routes/LoginPage.svelte"
+    import Register from "../routes/Register.svelte"
 </script>
 
 
@@ -45,6 +46,7 @@
             <NavLink to="/DonatePPE">Donate PPE</NavLink>
             <NavLink to="/BuildPPE">Build PPE</NavLink>
             <NavLink to ="/Fundraise">Fundraise</NavLink>
+            <NavLink to = "/LoginPage">Login</NavLink>
         </ul>
         <img src="logo.png" id="navLogo" alt="logo"/>
     </nav>
@@ -53,6 +55,8 @@
         <Route path="buildppe" component="{BuildPPE}" />
         <Route path="donateppe" component="{DonatePPE}" />
         <Route path="fundraise" component="{Fundaraise}" />
+        <Route path="LoginPage" component="{LoginPage}" />
+        <Route path="Register" component="{Register}" />
         <Route path="/"><Home /></Route>
         
   </div>

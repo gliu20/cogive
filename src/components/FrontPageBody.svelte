@@ -5,6 +5,7 @@
     import BuildPPE from "../routes/BuildPPE.svelte"
     import DonatePPE from "../routes/DonatePPE.svelte"
     import Fundaraise from "../routes/Fundraise.svelte"
+    import LoginPage from "../routes/LoginPage.svelte"
     import NavLink from "./NavLink.svelte";
 </script>
 <style>
@@ -72,10 +73,11 @@
 
         <nav class="nav">
             <ul class="navbar">
-                <button style="padding-left: 5vw;"><NavLink to="/about">About</NavLink></button>
-                <button style="padding-left: 5vw;"><NavLink to="/DonatePPE">Donate PPE</NavLink></button>
-                <button style="padding-left: 5vw;"><NavLink to="/BuildPPE">Build PPE</NavLink></button>
-                <button style="padding-left: 5vw;"><NavLink to ="/Fundraise">Fundraise</NavLink></button>
+                <button style="padding-left: 4vw;"><NavLink to="/about">About</NavLink></button>
+                <button style="padding-left: 4vw;"><NavLink to="/DonatePPE">Donate PPE</NavLink></button>
+                <button style="padding-left: 4vw;"><NavLink to="/BuildPPE">Build PPE</NavLink></button>
+                <button style="padding-left: 4vw;"><NavLink to ="/Fundraise">Fundraise</NavLink></button>
+                <button style="padding-left: 4vw;"><NavLink to ="/LoginPage">Login!</NavLink></button>
             </ul>
         </nav>
     </div>

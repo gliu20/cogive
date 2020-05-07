@@ -24,72 +24,7 @@
 		https://firebase.google.com/docs/web/setup#available-libraries -->
 	<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
-
-
-	<script>
-		// Your web app's Firebase configuration
-		var firebaseConfig = {
-			apiKey: "AIzaSyDaKaJMlGgKFWG6cVLkD1gslEmCiGg1HKE",
-			authDomain: "co-give.firebaseapp.com",
-			databaseURL: "https://co-give.firebaseio.com",
-			projectId: "co-give",
-			storageBucket: "co-give.appspot.com",
-			messagingSenderId: "27467077098",
-			appId: "1:27467077098:web:461e156f11dea6043e0e93",
-			measurementId: "G-2GNGLXNHGV"
-		};
-		// Initialize Firebase
-		firebase.initializeApp(firebaseConfig);
-		firebase.analytics();
-		firebase.auth();
-		const signIn = (email, password) => {
-			firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-  			// Handle Errors here.
-  			var errorCode = error.code;
-  			var errorMessage = error.message;
-  // ...
-		});
-		}
-		const signUp = (email, password) => {
-			firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-  			// Handle Errors here.
-  			var errorCode = error.code;
-  			var errorMessage = error.message;
-  // ...
-});
-		}
-
-		const getInfo = () => {
-			firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-    			// User is signed in.
-            	var displayName = user.displayName;
-            	var email = user.email;
-            	var emailVerified = user.emailVerified;
-            	var photoURL = user.photoURL;
-            	var isAnonymous = user.isAnonymous;
-            	var uid = user.uid;
-            	var providerData = user.providerData;
-    		// ...
-  			} 
-			else {
-    		// User is signed out.
-    		// ...
-  			}
-		});
-		}
-		var user = firebase.auth().currentUser;
-		const verifyEmail = () => {
-			
-			user.sendEmailVerification().then(function() {
-  			// Email sent.
-			}).catch(function(error) {
-  			// An error happened.
-			});
-
-		}
-	</script>
+	<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
 
 
 </head>
