@@ -13,6 +13,8 @@
   import NavLink from "./components/NavLink.svelte";
   import LoginPage from "./routes/LoginPage.svelte"
   import Register from "./routes/Register.svelte"
+  import dashboard from "./routes/dashboard.svelte"
+
   export let url = "";
 </script>
 
@@ -24,6 +26,7 @@
     <Route path="Fundraise" component="{Fundaraise}" />
     <Route path="LoginPage" component="{LoginPage}" />
     <Route path="Register" component="{Register}" />
+    <Route path="dashboard" component="{dashboard}" />
     <Route path="/"><Home /></Route>
   </div>
 </Router>

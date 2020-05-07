@@ -1,5 +1,6 @@
  <script>
     import { auth, provider } from '../firebase.js';
+    import firebase from 'firebase/app';
     import { navigate } from 'svelte-routing';
     import { user } from '../store.js';
     import NavBar from "../components/NavBar.svelte";
@@ -19,7 +20,7 @@
                 rewardsRef.set({
                 ppe:0,
                 awards: 0,
-                hospital: 0
+                occupaiton: person
             })
         }
         }).catch(error => alert(error.message));

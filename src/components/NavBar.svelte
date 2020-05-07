@@ -9,6 +9,7 @@
     import NavLink from "./NavLink.svelte";
     import LoginPage from "../routes/LoginPage.svelte"
     import Register from "../routes/Register.svelte"
+    import dashboard from "../routes/dashboard.svelte"
 </script>
 
 
@@ -47,7 +48,7 @@
             <NavLink to="/BuildPPE">Build PPE</NavLink>
             <NavLink to ="/Fundraise">Fundraise</NavLink>
             <NavLink to = "/LoginPage">Login</NavLink>
-            <NavLink to = "/Register">Register</NavLink>
+            <NavLink to = "/dashboard">Dashboard</NavLink>
         </ul>
         <img src="logo.png" id="navLogo" alt="logo"/>
     </nav>
@@ -58,6 +59,7 @@
         <Route path="fundraise" component="{Fundaraise}" />
         <Route path="LoginPage" component="{LoginPage}" />
         <Route path="Register" component="{Register}" />
+        <Route path="dashboard" component="{dashboard}" />
         <Route path="/"><Home /></Route>
         
   </div>

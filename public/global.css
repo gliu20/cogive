@@ -136,3 +136,31 @@ h3 {
     color: #ff0056;
     border: 2px solid black;
 }
+#userContainer {
+    margin: 20vh auto;
+    width: 50vw;
+    min-height: 40vh;
+    max-height: 50vh;
+    border: 3px solid #1155cc;
+    background-color: rgb(253, 253, 253);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh 0;
+}
+#accountContainer {
+    margin: 10vh auto;
+    width: 75vw;
+    min-height: 75vh;
+    max-height: 100vh;
+    border: 3px solid #1155cc;
+    background-color: rgb(253, 253, 253);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: right;
+    padding: 5vh 0;
+}

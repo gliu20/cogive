@@ -1,14 +1,14 @@
 <script>
-    import { auth, provider, database } from '../firebase.js';
+    import { auth, provider } from '../firebase.js';
+    import firebase from 'firebase/app';
     import { navigate } from 'svelte-routing';
     import { user } from '../store.js';
     import NavBar from "../components/NavBar.svelte";
     import NavLink from "../components/NavLink.svelte";
     import Register from "./Register.svelte"
     import { Router, Link, Route } from "svelte-routing";
-    import Dashboard from "/src/routes/dashboard.svelte"
-    export let url = "";
 
+    export let url = "";
     let email = '';
     let password = '';
     const handleGoogleLogin = () => {
@@ -22,9 +22,9 @@
             console.log('Google first', $user);
             user.set({...$user, loggedIn: true, email});
             console.log('Google then', $user);
-            f7router.navigate('/Dashboard');
-            const database = database()
-            rewardsRef = database.ref("users/"+user.userid+"/rewards")
+            f7router.navigate('./dashboard');
+            const database = firebase.database()
+            rewardsRef = firebase.database.ref("users/"+user.userid+"/rewards")
                 rewardsRef.set({
                 ppe:0,
                 awards: 0,
@@ -49,12 +49,13 @@
             console.log('first', $user);
             user.set({...$user, loggedIn: true, email});
             console.log('then', $user);
-            navigate('/dashboard');
+            navigate('./dashboard');
         }
         }).catch(error => alert(error.message));
         
     };
      const register = () => {
+         navigate('./Register')
         
     }   
 </script>
@@ -107,7 +108,6 @@
         <button class="userButton" on:click={handleLoginForm}>Login</button>
         <button class="userButton" on:click={handleGoogleLogin}>Google</button>
         <button class="userButton" on:click={register}>Register</button>
-        <button class = "userButton" onClick={() => f7router.navigation()}>Go Back</button>
         <!-- <nav class="nav">
         <ul class="navbar">
             <NavLink to = "/Register">Register</NavLink>
