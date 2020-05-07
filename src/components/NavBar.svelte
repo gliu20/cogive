@@ -47,6 +47,7 @@
             <NavLink to="/BuildPPE">Build PPE</NavLink>
             <NavLink to ="/Fundraise">Fundraise</NavLink>
             <NavLink to = "/LoginPage">Login</NavLink>
+            <NavLink to = "/Register">Register</NavLink>
         </ul>
         <img src="logo.png" id="navLogo" alt="logo"/>
     </nav>

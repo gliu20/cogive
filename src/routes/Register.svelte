@@ -1,5 +1,4 @@
-hello there
-<!-- <script>
+ <script>
     import { auth, provider } from '../firebase.js';
     import { navigate } from 'svelte-routing';
     import { user } from '../store.js';
@@ -7,7 +6,7 @@ hello there
     let email = '';
     let password = '';
     const handleRegisterForm = () => {
-        auth.signUpWithEmailAndPassword(email, password).then(function(result) {
+        auth.createUserWithEmailAndPassword(email, password).then(function(result) {
         let firebaseUser = auth.currentUser;
         if(firebaseUser) {
             let {email} = firebaseUser;
@@ -54,4 +53,4 @@ hello there
         
     </div>
     
-</div> -->
+</div> 
