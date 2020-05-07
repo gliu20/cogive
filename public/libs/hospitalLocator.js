@@ -2,17 +2,38 @@ const hospitalLocator = {};
 
 
 /**
- * doesn't work b/c the api seems to be disabled
+ *  api seems fixed (no cross origin blocks)!
  * TODO add caching
  */
 hospitalLocator._getLocationFromIp = async function (ipAddress) {
-    const requestUrl = `https://ipapi.co/json/`;
-    const locationDetails = await fetch(requestUrl, {});
-    const locationDetailsJson = await locationDetails.json();
+    const cachedLocation = cache.get("ip-location");
 
-    const { country, city, region, latitude, longitude } = locationDetailsJson;
+    if (cachedLocation.success) {
+        return cachedLocation.data;
+    }
+    
+    let location;
+    
+    try {
+        const requestUrl = `https://ipapi.co/json/`;
+        const locationDetails = await fetch(requestUrl, {});
+        const locationDetailsJson = await locationDetails.json();
 
-    return { country, city, region, latitude, longitude };
+    
+        const { latitude, longitude } = locationDetailsJson;
+        
+        location = { latitude, longitude };
+    }
+    catch (err) {
+        // smth bad happened
+        console.error("[ERRR] Error in retreiving location.")
+        console.error(err);
+        alert("Location is unavailable\n\nTry\n - Enabling location in your site settings\n - Ensuring your device is capable of geolocation\n - Reloading the page")
+        location = { latitude:0, longitude:0 };
+    }
+    
+    cache.set("ip-location", location)
+    return location;
 }
 
 
@@ -23,7 +44,6 @@ hospitalLocator._getLocationFromBrowser = function () {
 
     const options = {
         enableHighAccuracy: true,
-        timeout: 5000,
         maximumAge: 60000 // 60 seconds
     };
 
@@ -70,10 +90,13 @@ hospitalLocator.getLocationFromBrowser = async function () {
     catch (err) {
         // oh no! but we are not affected
         // we just give default coordinate and let the system deal with it
-        location = { latitude: 41, longitude: -74 };
+        console.warn("[WARN] Browser geolocation failed. Attempting to use data from ip address...")
+        console.warn(err);
+        location = await hospitalLocator._getLocationFromIp();
     }
 
     cache.set("location", location)
+    
     return location;
 }
 
