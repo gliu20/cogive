@@ -37,7 +37,7 @@ firebase.initializeApp(firebaseConfig);
 			firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
     			// User is signed in.
-            	email = user.email;
+            	return user.email;
   			} 
 			else {
     		// User is signed out.

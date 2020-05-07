@@ -8,8 +8,7 @@ import {getInfo} from '../firebase.js'
 // const userInfo = database.ref("users/"+user.userid+"/rewards")
 var occupation = user.awards;
 console.log(occupation);
-var email = "";
-getInfo()
+var email = getInfo()
 </script>
 <style>
 #doctorLogo {
