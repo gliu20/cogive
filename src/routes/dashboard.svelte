@@ -8,7 +8,17 @@ import {getInfo} from '../firebase.js'
 // const userInfo = database.ref("users/"+user.userid+"/rewards")
 var occupation = user.awards;
 console.log(occupation);
-var email = getInfo()
+var email=firebase.auth().currentUser.email;
+firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+    			// User is signed in.
+            	return user.email;
+  			} 
+			else {
+    		// User is signed out.
+    		// ...
+  			}
+		});
 </script>
 <style>
 #doctorLogo {
