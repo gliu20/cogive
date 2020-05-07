@@ -14,6 +14,13 @@
             user.set({...$user, loggedIn: true, email});
             console.log('then', $user);
             navigate('/dashboard');
+            const database = database()
+            rewardsRef = database.ref("users/"+user.userid+"/rewards")
+                rewardsRef.set({
+                ppe:0,
+                awards: 0,
+                hospital: 0
+            })
         }
         }).catch(error => alert(error.message));
         
@@ -39,6 +46,8 @@
         cursor: pointer;
     }
     </style>
+<NavBar></NavBar>
+
 <div id="userContainer">
     <div>
         <label for="email">Email</label>

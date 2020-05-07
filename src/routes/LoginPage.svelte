@@ -1,11 +1,12 @@
 <script>
-    import { auth, provider } from '../firebase.js';
+    import { auth, provider, database } from '../firebase.js';
     import { navigate } from 'svelte-routing';
     import { user } from '../store.js';
     import NavBar from "../components/NavBar.svelte";
     import NavLink from "../components/NavLink.svelte";
     import Register from "./Register.svelte"
     import { Router, Link, Route } from "svelte-routing";
+    import Dashboard from "/src/routes/dashboard.svelte"
     export let url = "";
 
     let email = '';
@@ -21,7 +22,14 @@
             console.log('Google first', $user);
             user.set({...$user, loggedIn: true, email});
             console.log('Google then', $user);
-            navigate('/dashboard');
+            f7router.navigate('/Dashboard');
+            const database = database()
+            rewardsRef = database.ref("users/"+user.userid+"/rewards")
+                rewardsRef.set({
+                ppe:0,
+                awards: 0,
+                hospital: 0
+            })
         }
         // ...
       }).catch(function(error) {
@@ -46,9 +54,9 @@
         }).catch(error => alert(error.message));
         
     };
-    const register = () => {
+     const register = () => {
         
-    }
+    }   
 </script>
 
 <style>
@@ -99,6 +107,7 @@
         <button class="userButton" on:click={handleLoginForm}>Login</button>
         <button class="userButton" on:click={handleGoogleLogin}>Google</button>
         <button class="userButton" on:click={register}>Register</button>
+        <button class = "userButton" onClick={() => f7router.navigation()}>Go Back</button>
         <!-- <nav class="nav">
         <ul class="navbar">
             <NavLink to = "/Register">Register</NavLink>
