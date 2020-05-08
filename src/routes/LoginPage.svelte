@@ -24,12 +24,13 @@
             console.log('Google then', $user);
             f7router.navigate('./dashboard');
             const database = firebase.database()
-            rewardsRef = firebase.database.ref("users/"+user.userid+"/rewards")
-                rewardsRef.set({
-                ppe:0,
-                awards: 0,
-                hospital: 0
-            })
+            writeUserData(user.userID, 'who cares', user.email)
+            // rewardsRef = firebase.database.ref("users/"+user.userid+"/rewards")
+            // rewardsRef.set({
+            //     ppe:0,
+            //     awards: 0,
+            //     hospital: 0
+            // })
         }
         // ...
       }).catch(function(error) {
