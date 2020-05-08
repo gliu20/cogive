@@ -1,20 +1,19 @@
- <script>
+<script>
     import { auth, provider } from '../firebase.js';
     import firebase from 'firebase/app';
     import { navigate } from 'svelte-routing';
     import { user } from '../store.js';
     import NavBar from "../components/NavBar.svelte";
+    const database = firebase.database()
+
     let email = '';
     let password = '';
-    function writeUserData(userId, name, email) {
-        firebase.database().ref('users/' + userId).set({
-            username: name,
-            email: email,
-            occupation : 'person',
-            rewards : 0
-        });
+    let job = '';
+    function writeUserData() {
+        firebase.database().ref('users/' + user.uid).set({
+      job:"jobless"
+  });
         }
-
     const handleRegisterForm = () => {
         auth.createUserWithEmailAndPassword(email, password).then(function (result) {
         let firebaseUser = auth.currentUser;
@@ -26,17 +25,25 @@
             navigate('/dashboard');
             const database = database()
             writeUserData(user.userID, 'who cares', user.email)
-
-            // rewardsRef = database.ref("users/"+user.userid+"/rewards")
-            //     rewardsRef.set({
-            //     ppe:0,
-            //     awards: 0,
-            //     occupaiton: person
-            // })
+            
         }
         }).catch(error => console.log(error));
         
     };
+    firebase.auth().onAuthStateChanged(function(user) {
+        if(user){
+            function writeUserData(jobs) {
+                  firebase.database().ref('users/' + user.uid).set({
+                      job:"person",
+                      ppeDonated: "hello",
+                      rewardLevel: ""
+                  });
+            }
+            writeUserData();
+            
+            
+        }
+    });
 </script>
 <style>
 .Register {

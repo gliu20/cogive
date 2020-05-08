@@ -150,11 +150,11 @@ h3 {
     align-items: center;
     padding: 5vh 0;
 }
-#accountContainer {
+.accountContainer {
     margin: 10vh auto;
     width: 75vw;
-    min-height: 75vh;
-    max-height: 100vh;
+    min-height: 50vh;
+    max-height: 75vh;
     border: 3px solid #1155cc;
     background-color: rgb(253, 253, 253);
     border-radius: 50px;
@@ -163,4 +163,18 @@ h3 {
     justify-content: right;
     align-items: right;
     padding: 5vh 0;
+}
+
+#iconLogo {
+    position: absolute;
+    width: 15vw;
+    margin-left: 2vw;
+    /* float: right */
+}
+.infoDash{
+    margin-left: 20vw;
+    /* margin-top: 5vw; */
+    color : black;
+    display: inline;
+    
 }
