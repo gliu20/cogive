@@ -8,35 +8,6 @@
 
 </script>
 <style>
-/* sorry Azal i kinda changed the css to make it fit with the other pages :(
-.fundraise-text h1{
-	color: rgb(31, 31, 31);
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 1.5em;
-	letter-spacing: 2px;
-	text-decoration: underline;
-}
-.fundraise-text h5{
-	position:relative;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 1em;	
-	left:30px;
-}
-.fundraise-text h3 {
-	position:relative;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 1.25em;	
-	left:30px;
-	text-emphasis: initial;
-	text-decoration: underline;
-}
-.fundraise-text h3{
-	text-emphasis: unset;
-	position:relative;
-	left:60px;
-	font-size: 1em;
-}
-*/
 
 .button-menu {
     display: flex;

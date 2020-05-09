@@ -7,6 +7,8 @@
     import NavLink from "../components/NavLink.svelte";
     import Register from "./Register.svelte"
     import { Router, Link, Route } from "svelte-routing";
+    import Footer from "../components/Footer.svelte";
+
 
     export let url = "";
     let email = '';
@@ -22,15 +24,9 @@
             console.log('Google first', $user);
             user.set({...$user, loggedIn: true, email});
             console.log('Google then', $user);
-            f7router.navigate('./dashboard');
             const database = firebase.database()
-            writeUserData(user.userID, 'who cares', user.email)
-            // rewardsRef = firebase.database.ref("users/"+user.userid+"/rewards")
-            // rewardsRef.set({
-            //     ppe:0,
-            //     awards: 0,
-            //     hospital: 0
-            // })
+            navigate('./dashboard');
+            
         }
         // ...
       }).catch(function(error) {
@@ -43,6 +39,7 @@
     };
     // Destructuring to obtain email and password from form via Event
     const handleLoginForm = () => {
+        
         auth.signInWithEmailAndPassword(email, password).then(function(result) {
         let firebaseUser = auth.currentUser;
         if(firebaseUser) {
@@ -120,3 +117,4 @@
     </Router>
     </div>
 </div>  
+<Footer></Footer>

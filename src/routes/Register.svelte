@@ -4,16 +4,14 @@
     import { navigate } from 'svelte-routing';
     import { user } from '../store.js';
     import NavBar from "../components/NavBar.svelte";
+        import Footer from "../components/Footer.svelte";
+
     const database = firebase.database()
 
     let email = '';
     let password = '';
     let job = '';
-    function writeUserData() {
-        firebase.database().ref('users/' + user.uid).set({
-      job:"jobless"
-  });
-        }
+
     const handleRegisterForm = () => {
         auth.createUserWithEmailAndPassword(email, password).then(function (result) {
         let firebaseUser = auth.currentUser;
@@ -35,8 +33,11 @@
             function writeUserData(jobs) {
                   firebase.database().ref('users/' + user.uid).set({
                       job:"person",
-                      ppeDonated: "hello",
-                      rewardLevel: ""
+                      ppeDonated: "0",
+                      rewardLevel: "0"
+                  });
+                  firebase.database().ref('users/userInfo' + user.email).set({
+                      userID: user.uid
                   });
             }
             writeUserData();
@@ -82,3 +83,4 @@
     </div>
     
 </div> 
+<Footer></Footer>
