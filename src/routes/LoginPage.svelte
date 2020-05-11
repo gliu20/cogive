@@ -11,6 +11,7 @@
 
 
     export let url = "";
+    let job = '';
     let email = '';
     let password = '';
     const handleGoogleLogin = () => {
@@ -19,15 +20,28 @@
         var token = result.credential.accessToken;
         // The signed-in user info.
         var firebaseuser = result.user;
+        database.ref('/users/' + userID).once('value').then(function(snapshot) {
+            job = (snapshot.val() && snapshot.val().job) || 'Anonymous';
+        });
+        if(job != 'person' && job != 'doctor'){
+            function writeUserData() {
+                firebase.database().ref('users/' + user.uid).set({
+                    job:"person",
+                    ppeDonated: "0",
+                    rewardLevel: "0"
+                });
+            }
+            writeUserData();
+        }
         if(firebaseuser) {
             let {email} = firebaseuser;
-            console.log('Google first', $user);
             user.set({...$user, loggedIn: true, email});
-            console.log('Google then', $user);
             const database = firebase.database()
             navigate('./dashboard');
-            
         }
+        
+        
+
         // ...
       }).catch(function(error) {
         var errorCode = error.code;
@@ -56,6 +70,9 @@
          navigate('./Register')
         
     }   
+
+//then() ends
+   //function ends
 </script>
 
 <style>
