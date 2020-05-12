@@ -4,7 +4,7 @@
     import { navigate } from 'svelte-routing';
     import { user } from '../store.js';
     import NavBar from "../components/NavBar.svelte";
-        import Footer from "../components/Footer.svelte";
+    import Footer from "../components/Footer.svelte";
 
     const database = firebase.database()
 
@@ -14,33 +14,42 @@
 
     const handleRegisterForm = () => {
         auth.createUserWithEmailAndPassword(email, password).then(function (result) {
-        let firebaseUser = auth.currentUser;
-        if(firebaseUser) {
-            let {email} = firebaseUser;
-            console.log('first', $user);
-            user.set({...$user, loggedIn: true, email});
-            console.log('then', $user);
-            navigate('/dashboard');
-            const database = database()
-            writeUserData(user.userID, 'who cares', user.email)
-            
-        }
-        }).catch(error => console.log(error));
-        
-    };
-    firebase.auth().onAuthStateChanged(function(user) {
-        if(user){
-            function writeUserData(jobs) {
-                  firebase.database().ref('users/' + user.uid).set({
-                      job:"person",
-                      ppeDonated: "0",
-                      rewardLevel: "0"
-                  });
-                  
+            let firebaseUser = auth.currentUser;
+            if (firebaseUser) {
+                let { email } = firebaseUser;
+                console.log('first', $user);
+
+
+                user.set({ ...$user, loggedIn: true, email });
+                // ^^ why do you have the user here?
+
+                console.log('then', $user);
+                navigate('/dashboard');
+                const database = database()
+
+                // where does this function come from?????
+                writeUserData(user.userID, 'who cares', user.email)
+
             }
-            writeUserData();
-            
-            
+        }).catch(error => console.log(error));
+
+    };
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // I think this is to set initial state
+            // this doesn't work so it is commented out
+            // this function doesn't do anything besides resetting a user's state
+            //function writeUserData(jobs) {
+            //    firebase.database().ref('users/' + user.uid).set({
+            //        job: "person",
+            //        ppeDonated: "0",
+            //        rewardLevel: "0"
+            //    });
+            //
+            //}
+            //writeUserData();
+
+
         }
     });
 </script>
@@ -56,7 +65,9 @@
         justify-content: space-between;
         margin-top: 3vh;
     }
-    input[type=email], input[type=password] {
+
+    input[type=email],
+    input[type=password] {
         color: #1155cc;
         width: 20vw;
         height: 35px;
@@ -67,6 +78,7 @@
         -moz-transition: all .4s ease;
         transition: all .4s ease;
     }
+
     #lower {
         width: 30vw;
         display: flex;
@@ -92,8 +104,8 @@
     <div id="lower">
         <button class="userButton" on:click={handleRegisterForm}>Register</button>
         <div>
-        
+
+        </div>
     </div>
-    </div>
-</div>  
+</div>
 <Footer></Footer>
