@@ -11,6 +11,8 @@
 
 
     export let url = "";
+
+    
     let job = '';
     let email = '';
     let password = '';
