@@ -14,7 +14,7 @@
     var userOccupation = '';
     var user = firebase.auth().currentUser;
 
-    var email = user.email;
+    var email = '';
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
