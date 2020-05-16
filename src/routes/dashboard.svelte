@@ -4,7 +4,6 @@
     import firebase from 'firebase/app';
     import { getInfo } from '../firebase.js'
     import Footer from "../components/Footer.svelte";
-
     var email = '';
     var job = '';
     var awards = '';
@@ -13,9 +12,7 @@
     const database = firebase.database()
     var userOccupation = '';
     var user = firebase.auth().currentUser;
-
     var email = '';
-
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // this gets and sets whatever the job is
@@ -32,13 +29,9 @@
             else {
                 database.ref('/users/' + user.uid).once('value').then(function (snapshot) {
                     Hospital = (snapshot.val() && snapshot.val().Hospital) || 'Anonymous';
-
                 });
             }
-
             var userId = firebase.auth().currentUser.uid;
-
-
             // User is signed in.
             email = user.email;
         }
@@ -49,17 +42,12 @@
         }
     });
     let userguy;
-
     if (job = "doctor") {
         userguy = { doctorman: true }
     }
     else {
         let userguy = { doctorman: false }
     }
-
-
-
-
     let name = 'test'
     let donationUserID;
     let ppeUPDATE;
@@ -85,13 +73,11 @@
         });
     }
     let dummyInputVar;
-
     function doSomething() {
         updatePPE(donationUserID, ppeUPDATE);
     }
 </script>
 <style>
-
 </style>
 <NavBar></NavBar>
 {#if job == "person"}
@@ -120,8 +106,10 @@
                 <p><strong>Hospital: {Hospital}</strong></p>
                 <p><strong>Role : {job}</strong></p>
                 <p><strong>UserID : {user.uid}</strong></p>
-                <input type="text" bind:value = {donationUserID} />
-                <input type="text" bind:value = {ppeUPDATE} />
+                <label for="userID"><strong> UserID of Donator</strong></label>
+                <input id = "userID" type="text"  bind:value = {donationUserID} />
+                <label for="PPEDonated"><strong>PPE Donated:</strong></label>
+                <input id = "PPEDonated" type="text"  bind:value = {ppeUPDATE} />
                 <button on:click={doSomething}></button>
             </div>
         </div>
