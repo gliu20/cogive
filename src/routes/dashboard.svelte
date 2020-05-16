@@ -110,7 +110,7 @@
                 <input id = "userID" type="text"  bind:value = {donationUserID} />
                 <label for="PPEDonated"><strong>PPE Donated:</strong></label>
                 <input id = "PPEDonated" type="text"  bind:value = {ppeUPDATE} />
-                <button on:click={doSomething}></button>
+                <button on:click={doSomething}>Update!</button>
             </div>
         </div>
         </div>
