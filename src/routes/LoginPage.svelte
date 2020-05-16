@@ -123,7 +123,7 @@
     </div>
     <div id="lower">
         <button class="userButton" on:click={handleLoginForm}>Login</button>
-        <button class="userButton" on:click={handleGoogleLogin}>Google</button>
+        <!-- <button class="userButton" on:click={handleGoogleLogin}>Google</button> -->
         <button class="userButton" on:click={register}>Register</button>
         <!-- <nav class="nav">
         <ul class="navbar">
