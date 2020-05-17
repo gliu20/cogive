@@ -107,9 +107,9 @@
                 <p><strong>Role : {job}</strong></p>
                 <p><strong>UserID : {user.uid}</strong></p>
                 <label for="userID"><strong> UserID of Donator</strong></label>
-                <input id = "userID" type="text"  bind:value = {donationUserID} />
+                <input id = "userID" type="text" placeholder="userID" bind:value = {donationUserID} />
                 <label for="PPEDonated"><strong>PPE Donated:</strong></label>
-                <input id = "PPEDonated" type="text"  bind:value = {ppeUPDATE} />
+                <input id = "PPEDonated" type="text" placeholder="ppe donated"  bind:value = {ppeUPDATE} />
                 <button on:click={doSomething}>Update!</button>
             </div>
         </div>
